@@ -1,11 +1,11 @@
 package com.incredibly_humble.app.controllers;
 
+import com.google.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import com.incredibly_humble.app.util.Login;
-import com.incredibly_humble.app.util.impl.LoginHardcoded;
 import com.incredibly_humble.app.util.impl.TriesExceededException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,13 +25,17 @@ public class LoginController {
     @FXML
     private TextField passField;
 
+    @Inject private Login newUser;
+    @Inject private FXMLLoader fxmlLoader;
+
     /**
      * Called when the user clicks cancel.
      */
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/welcome.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/views/welcome.fxml"));
+        Parent root = fxmlLoader.load();
         primaryStage.setScene(new Scene(root, 700, 500));
     }
 
@@ -42,11 +46,11 @@ public class LoginController {
     private void handleOKPressed(ActionEvent event) throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
-            Login newUser = new LoginHardcoded();
             try {
                 if(newUser.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/home.fxml"));
+                    fxmlLoader.setLocation(getClass().getResource("/views/home.fxml"));
+                    Parent root = fxmlLoader.load();
                     primaryStage.setScene(new Scene(root, 700, 500));
                 }  else {
                     Alert loginAlert = new Alert(Alert.AlertType.ERROR);
