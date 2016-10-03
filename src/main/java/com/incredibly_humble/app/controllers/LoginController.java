@@ -43,7 +43,6 @@ public class LoginController {
      */
     @FXML
     private void handleOKPressed(ActionEvent event) throws IOException {
-        //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
             try {
                 if(newUser.verify(nameField.getText(), passField.getText())) {

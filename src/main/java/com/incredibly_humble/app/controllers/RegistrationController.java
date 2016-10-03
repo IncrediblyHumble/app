@@ -1,5 +1,8 @@
 package com.incredibly_humble.app.controllers;
 
+import com.google.inject.Inject;
+import com.incredibly_humble.app.util.Login;
+import com.incredibly_humble.app.util.impl.TriesExceededException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import serverUtil.Login;
-import serverUtil.impl.LoginHardcoded;
-import serverUtil.impl.TriesExceededException;
+
 import java.io.IOException;
 
 public class RegistrationController {
@@ -21,14 +23,15 @@ public class RegistrationController {
     @FXML
     private TextField passField;
 
-
+    @Inject
+    Login newUser;
 
     /**
      * Called when the user clicks cancel.
      */
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
-        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("loginScreen/loginScreen.fxml"));
         primaryStage.setScene(new Scene(root, 700, 500));
     }
@@ -48,6 +51,7 @@ public class RegistrationController {
 
 
     //BASED ON WHICH COMBO BOX WAS MADE, CREATE TYPE OF CLASS AS USER
+
     /**
      * Called when the user clicks ok.
      */
@@ -55,24 +59,17 @@ public class RegistrationController {
     private void handleOKPressed(ActionEvent event) throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
-            Login newUser = new LoginHardcoded();
-            boolean success = false;
-            boolean error = false;
             try {
-                success = newUser.verify(nameField.getText(), passField.getText());
+                if (newUser.verify(nameField.getText(), passField.getText())) {
+                    Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homeScreen/home.fxml"));
+                    primaryStage.setScene(new Scene(root, 700, 500));
+                } else {
+                    Alert triesExceededAlert = new Alert(Alert.AlertType.ERROR,"Too many attempted logins");
+                    triesExceededAlert.setHeaderText("Invalid Attempt");
+                    triesExceededAlert.showAndWait();
+                }
             } catch (TriesExceededException e) {
-                error = true;
-            }
-            if (success) {
-                Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homeScreen/home.fxml"));
-                primaryStage.setScene(new Scene(root, 700, 500));
-            } else if (error) {
-                Alert triesExceededAlert = new Alert(Alert.AlertType.ERROR);
-                triesExceededAlert.setHeaderText("Invalid Attempt");
-                triesExceededAlert.setContentText("Too many attempted logins");
-                triesExceededAlert.showAndWait();
-            } else {
                 Alert loginAlert = new Alert(Alert.AlertType.ERROR);
                 loginAlert.setHeaderText("Please correct invalid fields");
                 loginAlert.setContentText("Invalid username or password");
