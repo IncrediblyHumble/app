@@ -26,75 +26,46 @@ public class LoginController {
     @FXML
     private TextField passField;
 
-    @Inject private Login newUser;
-    @Inject private ScreenSwitch screenSwitch;
+    @Inject
+    private Login user;
+    @Inject
+    private ScreenSwitch screenSwitch;
 
     /**
      * Called when the user clicks cancel.
      */
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
-        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
     }
 
-    /**
-     * Called when the user clicks ok.
-     */
     @FXML
     private void handleOKPressed(ActionEvent event) throws IOException {
-        if (isInputValid()) {
+        //First validate the data to insure it is at least reasonable
+        if (nameField.getText() == null || nameField.getText().length() == 0 ||
+                passField.getText() == null || passField.getText().length() == 0) {
             try {
-                if(newUser.verify(nameField.getText(), passField.getText())) {
+                if (user.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     screenSwitch.toScreen(primaryStage, "/views/home.fxml");
-                }  else {
-                    Alert loginAlert = new Alert(Alert.AlertType.ERROR);
-                    loginAlert.setHeaderText("Please correct invalid fields");
-                    loginAlert.setContentText("Invalid username or password");
-                    loginAlert.showAndWait();
+                } else {
+                    alert("Invalid username or password", "Username and Password are incorrect", "Invalid username or password");
+
                 }
             } catch (TriesExceededException e) {
-                Alert triesExceededAlert = new Alert(Alert.AlertType.ERROR);
-                triesExceededAlert.setHeaderText("Invalid Attempt");
-                triesExceededAlert.setContentText("Too many attempted logins");
-                triesExceededAlert.showAndWait();
+                alert("Invalid username or password", "Please correct invalid fields", "Too many attempts");
+
             }
+        } else {
+            alert("Input is invalid", "Invalid Fields", "Please correct invalid fields");
         }
     }
 
-    /**
-     * Validates the user input in the text fields.
-     *
-     * @return true if the input is valid
-     */
-    private boolean isInputValid() {
-        String errorMessage = "";
-        boolean error = false;
-
-        //checks if they typed something
-        if (nameField.getText() == null || nameField.getText().length() == 0) {
-            error = true;
-            errorMessage += "No valid username entered.\n";
-        }
-        if (passField.getText() == null || passField.getText().length() == 0) {
-            error = true;
-            errorMessage += "No valid password entered.\n";
-        }
-
-        //no error message means success / good input
-        if (!error) {
-            return true;
-        } else {
-            // Puts an alert if they didn't do anything
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText(errorMessage);
-
-            alert.showAndWait();
-
-            return false;
-        }
+    private void alert(String context, String header, String title) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, context);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.showAndWait();
     }
 }
