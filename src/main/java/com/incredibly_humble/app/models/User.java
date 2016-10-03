@@ -2,7 +2,7 @@ package com.incredibly_humble.app.models;
 
 public class User {
 
-    enum AccountType {
+    public enum AccountType {
         USER,
         WORKER,
         MANAGER,
