@@ -63,7 +63,8 @@ public class LoginController {
     }
 
     @FXML private void handleRegisterPressed(ActionEvent event)throws IOException{
-
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        screenSwitch.toScreen(primaryStage, "/views/registration.fxml");
     }
     private void alert(String context, String header, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR, context);
