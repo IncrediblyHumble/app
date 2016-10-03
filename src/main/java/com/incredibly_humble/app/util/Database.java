@@ -1,13 +1,13 @@
 package com.incredibly_humble.app.util;
 
-import com.incredibly_humble.app.models.Customer;
+import com.incredibly_humble.app.models.User;
 
 /**
  * interface for handling database interactions
  */
 public interface Database {
-    public void addUser(Customer c);
-    public void updateUser(Customer c);
-    public void deleteUser(Customer c);
+    public void addUser(User u);
+    public void updateUser(User u);
+    public void deleteUser(User u);
     public void getUsers();
 }

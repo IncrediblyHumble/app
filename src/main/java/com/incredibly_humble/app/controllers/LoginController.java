@@ -43,8 +43,8 @@ public class LoginController {
     @FXML
     private void handleOKPressed(ActionEvent event) throws IOException {
         //First validate the data to insure it is at least reasonable
-        if (nameField.getText() == null || nameField.getText().length() == 0 ||
-                passField.getText() == null || passField.getText().length() == 0) {
+        if (nameField.getText() != null && nameField.getText().length() != 0 &&
+                passField.getText() != null && passField.getText().length() != 0) {
             try {
                 if (user.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -62,6 +62,9 @@ public class LoginController {
         }
     }
 
+    @FXML private void handleRegisterPressed(ActionEvent event)throws IOException{
+
+    }
     private void alert(String context, String header, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR, context);
         alert.setTitle(title);
