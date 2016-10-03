@@ -8,6 +8,6 @@ public class Module extends AbstractModule {
     @Override
     protected void configure() {
         bind(Login.class).to(LoginHardcoded.class);
-        bind(ScreenSwitch.class).to(ScreenSwitch.class);
+        bind(ScreenSwitch.class);
     }
 }
