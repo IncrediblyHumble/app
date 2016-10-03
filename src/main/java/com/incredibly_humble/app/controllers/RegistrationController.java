@@ -47,36 +47,7 @@ public class RegistrationController {
 
     @FXML
     private void initialize() {
-        ObservableList<User.AccountType> accountTypes = wrapper(User.AccountType.values());
-        accountBox.getItems().addAll(accountTypes);
+        accountBox.getItems().addAll(FXCollections.observableArrayList(User.AccountType.values()));
     }
 
-    private static ObservableList<User.AccountType> wrapper(User.AccountType[] accountTypes) {
-        ObservableList<User.AccountType> accountTypeList = FXCollections.observableArrayList();
-        accountTypeList.addAll(accountTypes);
-        return accountTypeList;
-    }
-    //TO IMPLEMENT: THE COMBO BOX WITH OPTIONS FOR USER TYPE
-    // ObservableList<String> options =
-    //         FXCollections.observableArrayList(
-    //                 "ADMIN",
-    //                 "USER",
-    //                 "MANAGER",
-    //                 "WORKER"
-    //         );
-    // final ComboBox typeComboBox = new ComboBox(options);
-    // @FXML
-    // private void setTypeComboBox(){
-    //     typeComboBox.getSelectionModel().select("User");
-    // }
-
-
-    //BASED ON WHICH COMBO BOX WAS MADE, CREATE TYPE OF CLASS AS USER
-
-    private void alert(String context, String header, String title){
-        Alert alert = new Alert(Alert.AlertType.ERROR, context);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        alert.showAndWait();
-    }
 }
