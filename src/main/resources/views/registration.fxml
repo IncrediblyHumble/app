@@ -60,23 +60,9 @@
             <Insets />
          </GridPane.margin>
       </HBox>
-      <ComboBox fx:id="setTypeComboBox" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="User" />
-               <String fx:value="Worker" />
-               <String fx:value="Manager" />
-               <String fx:value="Admin" />
-            </FXCollections>
-         </items>
-         <value>
-            <String fx:value="User" />
-         </value>
-         <padding>
-            <Insets left="20.0" />
-         </padding>
+      <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets left="100.0" />
+            <Insets left="20.0" right="20.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Account Type" GridPane.rowIndex="2">
