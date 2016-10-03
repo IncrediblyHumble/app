@@ -9,52 +9,53 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.LoginController">
-          <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="279.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="321.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <Label text="Name:">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Password:" GridPane.rowIndex="1">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="nameField" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin></TextField>
-      <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin></TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleOKPressed" text="Login" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </HBox>
-   </children>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginScreen.LoginController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="279.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="321.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label text="Name:">
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Password:" GridPane.rowIndex="1">
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <TextField fx:id="nameField" GridPane.columnIndex="1">
+            <GridPane.margin>
+                <Insets left="20.0" right="20.0" />
+            </GridPane.margin></TextField>
+        <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="20.0" right="20.0" />
+            </GridPane.margin></TextField>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleOKPressed" text="Login" />
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterPressed" text="Register New Account" />
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
+        </HBox>
+    </children>
 </GridPane>
