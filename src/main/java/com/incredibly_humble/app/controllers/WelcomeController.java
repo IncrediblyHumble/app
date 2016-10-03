@@ -1,6 +1,7 @@
 package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
+import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,11 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class WelcomeController {
-    @Inject FXMLLoader fxmlLoader;
+    @Inject private ScreenSwitch screenSwitch;
     public void login(ActionEvent event)throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        fxmlLoader.setLocation(getClass().getResource("/views/login.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setScene(new Scene(root, 700, 500));
+        screenSwitch.toScreen(primaryStage, "/views/login.fxml");
     }
 }

@@ -3,6 +3,7 @@ package com.incredibly_humble.app;
 import com.gluonhq.ignite.guice.GuiceContext;
 import com.google.inject.Inject;
 import com.incredibly_humble.app.util.impl.Module;
+import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,16 +16,13 @@ public class App extends Application {
 
     private GuiceContext context = new GuiceContext(this, () -> Arrays.asList(new Module()));
     @Inject
-    private FXMLLoader fxmlLoader;
+    private ScreenSwitch screenSwitch;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         context.init();
-        fxmlLoader.setLocation(getClass().getResource("/views/welcome.fxml"));
-        Parent root = fxmlLoader.load();
-
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 700, 500));
+        screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
         primaryStage.show();
     }
 

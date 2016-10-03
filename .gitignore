@@ -9,7 +9,7 @@
 .idea/jsLibraryMappings.xml
 
 .idea/
-.iml
+*.iml
 build/
-.gradle/
+*.gradle/
 target/

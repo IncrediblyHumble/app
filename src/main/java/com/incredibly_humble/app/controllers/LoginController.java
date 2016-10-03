@@ -1,6 +1,7 @@
 package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
+import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,7 +27,7 @@ public class LoginController {
     private TextField passField;
 
     @Inject private Login newUser;
-    @Inject private FXMLLoader fxmlLoader;
+    @Inject private ScreenSwitch screenSwitch;
 
     /**
      * Called when the user clicks cancel.
@@ -34,9 +35,7 @@ public class LoginController {
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        fxmlLoader.setLocation(getClass().getResource("/views/welcome.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setScene(new Scene(root, 700, 500));
+        screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
     }
 
     /**
@@ -49,9 +48,7 @@ public class LoginController {
             try {
                 if(newUser.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    fxmlLoader.setLocation(getClass().getResource("/views/home.fxml"));
-                    Parent root = fxmlLoader.load();
-                    primaryStage.setScene(new Scene(root, 700, 500));
+                    screenSwitch.toScreen(primaryStage, "/views/home.fxml");
                 }  else {
                     Alert loginAlert = new Alert(Alert.AlertType.ERROR);
                     loginAlert.setHeaderText("Please correct invalid fields");
