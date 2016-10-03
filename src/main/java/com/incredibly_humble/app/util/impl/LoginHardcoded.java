@@ -1,6 +1,7 @@
 package com.incredibly_humble.app.util.impl;
 
 import com.incredibly_humble.app.util.Login;
+import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
 /**
  * An implementation of Login that uses the hardcoded username "foo" and password "bar"

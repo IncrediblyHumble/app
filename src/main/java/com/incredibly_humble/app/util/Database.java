@@ -1,13 +1,19 @@
 package com.incredibly_humble.app.util;
 
 import com.incredibly_humble.app.models.User;
+import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
+
+import java.util.ArrayList;
 
 /**
  * interface for handling database interactions
  */
 public interface Database {
-    public void addUser(User u);
-    public void updateUser(User u);
-    public void deleteUser(User u);
-    public void getUsers();
+    public User addUser(User u) throws DatabaseException;
+
+    public User updateUser(User u) throws DatabaseException;
+
+    public User deleteUser(User u) throws DatabaseException;
+
+    public ArrayList<User> getUsers();
 }

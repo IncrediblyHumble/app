@@ -1,6 +1,6 @@
 package com.incredibly_humble.app.util;
 
-import com.incredibly_humble.app.util.impl.TriesExceededException;
+import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
 public interface Login {
     /**
