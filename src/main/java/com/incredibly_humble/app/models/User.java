@@ -95,3 +95,37 @@ public class User {
         }
     }
 }
+
+/**
+ * Created by Derek on 10/03/16.
+ */
+enum AccountType {
+    USER ("USER"),
+    WORKER ("WORKER"),
+    MANAGER ("MANAGER"),
+    ADMIN ("ADMIN");
+
+    private final String code;
+
+    /**
+     * Constructor for the enumeration
+     *
+     * @param classCode   letter code / abbreviation for the course
+     */
+    ClassStanding(String classCode) {
+        code = classCode;
+    }
+
+    /**
+     *
+     * @return the abbreviation for the course
+     */
+    public String getCode() { return code; }
+
+    /**
+     *
+     * @return the display string representation of the course
+     */
+    public String toString() { return code; }
+}
+
