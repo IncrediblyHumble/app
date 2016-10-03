@@ -27,6 +27,13 @@ public class User {
     }
 
     /**
+     *
+     * @return password
+     */
+    public String getPassword(){
+        return password;
+    }
+    /**
      * @param email the email to set
      */
     public void setEmail(String email) {
@@ -76,8 +83,8 @@ public class User {
     }
     @Override
     public boolean equals(Object comparison) {
-        if (comparison instanceof Customer) {
-            Customer foo = (Customer) comparison;
+        if (comparison instanceof User) {
+            User foo = (User) comparison;
             if (foo.getName().equals(this.name) && foo.getPassword().equals(this.password)) {
                 return true;
             } else {
