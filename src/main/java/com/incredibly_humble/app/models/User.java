@@ -15,10 +15,11 @@ public class User {
     private String phone = "";
     private boolean subscribed;
     private String address = "";
-
-    public User(String name, String password) {
+    AccountType type;
+    public User(String name, String password, AccountType type) {
         this.name = name;
         this.password = password;
+        this.type = type;
     }
 
 

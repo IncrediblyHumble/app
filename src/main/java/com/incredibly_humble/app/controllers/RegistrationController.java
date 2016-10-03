@@ -2,6 +2,7 @@ package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
 import com.incredibly_humble.app.util.Login;
+import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import com.incredibly_humble.app.util.impl.TriesExceededException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +26,8 @@ public class RegistrationController {
 
     @Inject
     Login newUser;
+    @Inject
+    ScreenSwitch screenSwitch;
 
     /**
      * Called when the user clicks cancel.
@@ -32,8 +35,7 @@ public class RegistrationController {
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("loginScreen/loginScreen.fxml"));
-        primaryStage.setScene(new Scene(root, 700, 500));
+        screenSwitch.toScreen(primaryStage, "/views/login.fxml");
     }
     //TO IMPLEMENT: THE COMBO BOX WITH OPTIONS FOR USER TYPE
     // ObservableList<String> options =
@@ -62,8 +64,7 @@ public class RegistrationController {
             try {
                 if (newUser.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homeScreen/home.fxml"));
-                    primaryStage.setScene(new Scene(root, 700, 500));
+                    screenSwitch.toScreen(primaryStage, "/views/home.fxml");
                 } else {
                     Alert triesExceededAlert = new Alert(Alert.AlertType.ERROR,"Too many attempted logins");
                     triesExceededAlert.setHeaderText("Invalid Attempt");
