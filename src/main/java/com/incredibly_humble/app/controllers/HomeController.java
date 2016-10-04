@@ -18,4 +18,8 @@ public class HomeController {
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
     }
+    public void gotoProfile(ActionEvent event) throws IOException{
+        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        screenSwitch.toScreen(primaryStage, "/views/profile.fxml");
+    }
 }
