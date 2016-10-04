@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -41,12 +40,7 @@
                               <Insets top="8.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextArea fx:id="address" maxHeight="82.0" minHeight="82.0" minWidth="200.0" prefHeight="82.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label id="Label" font="$x1" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets left="28.0" top="3.0" />
-                           </GridPane.margin>
-                        </Label>
+                        <TextField fx:id="address" layoutX="85.0" layoutY="147.0" minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="NEVER" minWidth="60.0" />
@@ -66,14 +60,6 @@
             </VBox>
          </children>
       </AnchorPane>
-      <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
-         <children>
-            <Label fx:id="success" opacity="0.0" text="Profile  successfully updated!">
-               <font>
-                  <Font size="12.0" fx:id="x2" />
-               </font></Label>
-         </children>
-      </HBox>
       <HBox id="HBox" alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <children>
             <Button fx:id="cancel" defaultButton="true" font="$x1" maxHeight="2.147483647E9" onAction="#cancelProfile" prefHeight="50.0" prefWidth="205.0" text="Cancel" HBox.hgrow="ALWAYS" />

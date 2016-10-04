@@ -26,7 +26,7 @@ public class ProfileController {
     @FXML
     private TextField email;
     @FXML
-    private TextArea address;
+    private TextField address;
     @Inject
     private ScreenSwitch screenSwitch;
     @Inject
