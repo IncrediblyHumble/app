@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.google.inject.Inject;
+import com.incredibly_humble.app.models.User;
+import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.Login;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.event.ActionEvent;
@@ -25,23 +27,27 @@ public class ProfileController {
     private TextField email;
     @FXML
     private TextArea address;
-    @FXML
-    private CheckBox subscribed;
-    @FXML
-    private Button save;
-    @FXML
-    private Label success;
-    @Inject
-    private Login user;
     @Inject
     private ScreenSwitch screenSwitch;
+    @Inject
+    Database db;
+    private User user;
+    @FXML
+    public void initialize(){
+        user = db.getCurrentUser();
+        name.setText(user.getName());
+        phone.setText(user.getPhone());
+        email.setText(user.getEmail());
+        address.setText(user.getAddress());
+    }
 
-
-
-    public void saveProfile(ActionEvent event) {
-        // TO IMPLEMENT: Saves current info put into profile Screen for the current user
-        // Check out serverUtil User for information on the text fields
-        // look at profileScreen on SceneBuilder for an idea
+    public void saveProfile(ActionEvent event) throws Exception {
+        user.setAddress(address.getText());
+        user.setEmail(email.getText());
+        user.setPhone(phone.getText());
+        db.updateUser(user);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        screenSwitch.toScreen(primaryStage, "/views/home.fxml");
 
     }
 

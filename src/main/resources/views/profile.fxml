@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -43,15 +42,7 @@
                            </GridPane.margin>
                         </Label>
                         <TextArea fx:id="address" maxHeight="82.0" minHeight="82.0" minWidth="200.0" prefHeight="82.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <CheckBox id="" fx:id="subscribed" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <font>
-                              <Font size="12.0" fx:id="x2" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="1.0" />
-                           </GridPane.margin>
-                        </CheckBox>
-                        <Label id="Label" font="$x1" text="Subscribe to notifications" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <Label id="Label" font="$x1" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="28.0" top="3.0" />
                            </GridPane.margin>
@@ -77,7 +68,10 @@
       </AnchorPane>
       <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <children>
-            <Label fx:id="success" font="$x2" opacity="0.0" text="Profile  successfully updated!" />
+            <Label fx:id="success" opacity="0.0" text="Profile  successfully updated!">
+               <font>
+                  <Font size="12.0" fx:id="x2" />
+               </font></Label>
          </children>
       </HBox>
       <HBox id="HBox" alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">

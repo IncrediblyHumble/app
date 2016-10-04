@@ -10,6 +10,6 @@ public class DatabaseLogin implements Login{
     Database db;
     @Override
     public boolean verify(String username, String password) throws TriesExceededException {
-        return db.checkCredentials(username, password);
+        return db.checkCredentialsAndLogin(username, password);
     }
 }
