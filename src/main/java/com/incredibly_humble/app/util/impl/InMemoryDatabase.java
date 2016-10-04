@@ -11,6 +11,7 @@ import java.util.HashMap;
 @Singleton
 public class InMemoryDatabase implements Database {
     private HashMap<String, User> users;
+    private User loggedIn;
     public InMemoryDatabase(){
         users = new HashMap<String,User>();
     }
@@ -40,12 +41,23 @@ public class InMemoryDatabase implements Database {
     }
 
     @Override
-    public boolean checkCredentials(String user, String pass) {
-        return users.containsKey(user) && users.get(user).getPassword().equals(pass);
+    public boolean checkCredentialsAndLogin(String user, String pass) {
+        if(users.containsKey(user) && users.get(user).getPassword().equals(pass)){
+            loggedIn = users.get(user);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public ArrayList<User> getUsers() {
         return new ArrayList<User>(users.values());
     }
+
+    @Override
+    public User getCurrentUser() {
+        return loggedIn;
+    }
+
+
 }
