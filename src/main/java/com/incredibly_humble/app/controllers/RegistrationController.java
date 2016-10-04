@@ -6,6 +6,7 @@ import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.Login;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
+import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -43,13 +44,14 @@ public class RegistrationController {
     }
 
     @FXML
-    private void handleRegistrationPressed(ActionEvent event) throws IOException {
+    private void handleRegistrationPressed(ActionEvent event) throws IOException, TriesExceededException {
         if (nameField.getText() != null && nameField.getText().length() != 0 &&
                 passField.getText() != null && passField.getText().length() != 0) {
             try {
                 db.addUser(new User(nameField.getText(),
                         passField.getText(),
                         (User.AccountType) typeBox.getSelectionModel().getSelectedItem()));
+                user.verify(nameField.getText(), passField.getText());
                 screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                         "/views/home.fxml");
             } catch (DatabaseException e) {
