@@ -3,12 +3,11 @@ package com.incredibly_humble.app.util.impl;
 import com.google.inject.AbstractModule;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.Login;
-import com.incredibly_humble.app.util.impl.LoginHardcoded;
 
 public class Module extends AbstractModule {
     @Override
     protected void configure() {
-        bind(Login.class).to(LoginHardcoded.class);
+        bind(Login.class).to(DatabaseLogin.class);
         bind(ScreenSwitch.class);
         bind(Database.class).to(InMemoryDatabase.class);
     }

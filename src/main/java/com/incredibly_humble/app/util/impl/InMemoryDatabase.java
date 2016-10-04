@@ -1,5 +1,6 @@
 package com.incredibly_humble.app.util.impl;
 
+import com.google.inject.Singleton;
 import com.incredibly_humble.app.models.User;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
@@ -7,6 +8,7 @@ import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@Singleton
 public class InMemoryDatabase implements Database {
     private HashMap<String, User> users;
     public InMemoryDatabase(){
@@ -35,6 +37,11 @@ public class InMemoryDatabase implements Database {
             throw new DatabaseException("User Does Not Exist");
         }
         return users.remove(u.getName());
+    }
+
+    @Override
+    public boolean checkCredentials(String user, String pass) {
+        return users.containsKey(user) && users.get(user).getPassword().equals(pass);
     }
 
     @Override

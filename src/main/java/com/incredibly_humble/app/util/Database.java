@@ -15,5 +15,7 @@ public interface Database {
 
     public User deleteUser(User u) throws DatabaseException;
 
+    public boolean checkCredentials(String user, String pass);
+
     public ArrayList<User> getUsers();
 }
