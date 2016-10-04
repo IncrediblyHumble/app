@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class ProfileController {
 
     @FXML
-    private TextField user;
+    private TextField name;
     @FXML
     private TextField phone;
     @FXML
@@ -35,6 +35,8 @@ public class ProfileController {
     private Login user;
     @Inject
     private ScreenSwitch screenSwitch;
+
+
 
     public void saveProfile(ActionEvent event) {
         // TO IMPLEMENT: Saves current info put into profile Screen for the current user
