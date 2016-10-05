@@ -15,6 +15,7 @@ public class ScreenSwitch {
     /**
      * @param primaryStage of the current screen
      * @param path string we want to go to
+     * @throws IOException
      * switches to the screen we wish to go to
      */
     public void toScreen(Stage primaryStage, String path) throws IOException{
