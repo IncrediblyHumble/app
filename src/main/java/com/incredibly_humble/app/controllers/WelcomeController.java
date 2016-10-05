@@ -11,8 +11,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the welcome screen
+ */
 public class WelcomeController {
     @Inject private ScreenSwitch screenSwitch;
+
+    /**
+     * Event handler for the login button
+     *
+     * @param event ActionEvent connected to the login button
+     * @throws IOException in case of error in the ActionEvent
+     */
     public void login(ActionEvent event)throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/login.fxml");

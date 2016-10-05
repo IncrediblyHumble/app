@@ -17,6 +17,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the profile screen
+ */
 public class ProfileController {
 
     @FXML
@@ -32,6 +35,10 @@ public class ProfileController {
     @Inject
     Database db;
     private User user;
+
+    /**
+     * Method for initializing the text boxes
+     */
     @FXML
     public void initialize(){
         user = db.getCurrentUser();
@@ -41,6 +48,12 @@ public class ProfileController {
         address.setText(user.getAddress());
     }
 
+    /**
+     * Event handler if the user presses the save button
+     *
+     * @param event ActionEvent connected to the save button
+     * @throws IOException in case of error in the ActionEvent
+     */
     public void saveProfile(ActionEvent event) throws Exception {
         user.setAddress(address.getText());
         user.setEmail(email.getText());
@@ -51,6 +64,12 @@ public class ProfileController {
 
     }
 
+    /**
+     * Event handler if the user presses the cancel button
+     *
+     * @param event ActionEvent connected to the cancel button
+     * @throws IOException in case of error in the ActionEvent
+     */
     public void cancelProfile(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/home.fxml");
