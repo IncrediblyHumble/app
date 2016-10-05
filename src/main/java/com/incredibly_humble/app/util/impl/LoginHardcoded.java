@@ -5,7 +5,6 @@ import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
 /**
  * An implementation of Login that uses the hardcoded username "foo" and password "bar"
- * Created by noam on 9/25/16.
  */
 public class LoginHardcoded implements Login{
     static int count = 0;

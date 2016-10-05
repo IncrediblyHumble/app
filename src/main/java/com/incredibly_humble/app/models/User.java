@@ -22,7 +22,9 @@ public class User {
         this.type = type;
     }
 
-
+    /**
+     * @return the username of user
+     */
     public String getName() {
         return name;
     }

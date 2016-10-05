@@ -12,7 +12,11 @@ public class ScreenSwitch {
 
     @Inject
     private FXMLLoader fxmlLoader;
-
+    /**
+     * @param primaryStage of the current screen
+     * @param path string we want to go to
+     * switches to the screen we wish to go to
+     */
     public void toScreen(Stage primaryStage, String path) throws IOException{
         fxmlLoader.setLocation(getClass().getResource(path));
         Parent root = fxmlLoader.load();

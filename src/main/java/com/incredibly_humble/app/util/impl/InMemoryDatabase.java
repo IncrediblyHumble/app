@@ -15,6 +15,9 @@ public class InMemoryDatabase implements Database {
     public InMemoryDatabase(){
         users = new HashMap<String,User>();
     }
+    /**
+     * @return the user we just added into database
+     */
     @Override
     public User addUser(User u) throws DatabaseException {
         if(users.containsKey(u.getName())){
@@ -22,7 +25,9 @@ public class InMemoryDatabase implements Database {
         }
         return users.put(u.getName(), u);
     }
-
+    /**
+     * @return the user we updated
+     */
     @Override
     public User updateUser(User u) throws DatabaseException{
         if(!users.containsKey(u.getName())){
@@ -31,7 +36,9 @@ public class InMemoryDatabase implements Database {
         users.remove(u.getName());
         return users.put(u.getName(),u);
     }
-
+    /**
+     * @return the user we deleted
+     */
     @Override
     public User deleteUser(User u) throws DatabaseException {
         if(!users.containsKey(u.getName())){
@@ -39,7 +46,9 @@ public class InMemoryDatabase implements Database {
         }
         return users.remove(u.getName());
     }
-
+    /**
+     * @return true if login username and password exists
+     */
     @Override
     public boolean checkCredentialsAndLogin(String user, String pass) {
         if(users.containsKey(user) && users.get(user).getPassword().equals(pass)){
@@ -48,7 +57,9 @@ public class InMemoryDatabase implements Database {
         }
         return false;
     }
-
+    /**
+     * @return ArrayList<User> of users in the database
+     */
     @Override
     public ArrayList<User> getUsers() {
         return new ArrayList<User>(users.values());
