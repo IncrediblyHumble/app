@@ -26,7 +26,8 @@ public class InMemoryDatabase implements Database {
         return users.put(u.getName(), u);
     }
     /**
-     * @return the user we updated
+     * @return the user we
+     * @throws DatabaseException
      */
     @Override
     public User updateUser(User u) throws DatabaseException{
@@ -38,6 +39,7 @@ public class InMemoryDatabase implements Database {
     }
     /**
      * @return the user we deleted
+     * @throws DatabaseException
      */
     @Override
     public User deleteUser(User u) throws DatabaseException {
@@ -47,6 +49,8 @@ public class InMemoryDatabase implements Database {
         return users.remove(u.getName());
     }
     /**
+     * @param user name of user id
+     * @param pass password to login
      * @return true if login username and password exists
      */
     @Override
@@ -64,7 +68,9 @@ public class InMemoryDatabase implements Database {
     public ArrayList<User> getUsers() {
         return new ArrayList<User>(users.values());
     }
-
+    /**
+     * @return User current users in the database
+     */
     @Override
     public User getCurrentUser() {
         return loggedIn;
