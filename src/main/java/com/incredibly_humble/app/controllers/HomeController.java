@@ -11,13 +11,29 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the home screen
+ */
 public class HomeController {
     @Inject private ScreenSwitch screenSwitch;
 
+    /**
+     * Event handler for the logout button
+     *
+     * @param event ActionEvent connected to the logout button
+     * @throws IOException in case of error in the ActionEvent
+     */
     public void logout(ActionEvent event) throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
     }
+
+    /**
+     * Event handler for the profile button
+     *
+     * @param event ActionEvent connected to the profile button
+     * @throws IOException in case of error in the ActionEvent
+     */
     public void gotoProfile(ActionEvent event) throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/profile.fxml");

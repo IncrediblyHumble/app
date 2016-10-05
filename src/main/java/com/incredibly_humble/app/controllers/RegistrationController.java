@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the registration screen
+ */
 public class RegistrationController {
     @FXML
     private TextField nameField;
@@ -36,6 +39,8 @@ public class RegistrationController {
 
     /**
      * Called when the user clicks cancel.
+     * @param event ActionEvent connected to the cancel button
+     * @throws IOException in case of error in the ActionEvent
      */
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
@@ -43,6 +48,12 @@ public class RegistrationController {
         screenSwitch.toScreen(primaryStage, "/views/login.fxml");
     }
 
+    /**
+     * Called when the user presses register.
+     * @param event ActionEvent connected to the login button
+     * @throws IOException in case of error in the ActionEvent
+     * @throws TriesExceededException in case the user tries to login in too many times
+     */
     @FXML
     private void handleRegistrationPressed(ActionEvent event) throws IOException, TriesExceededException {
         if (nameField.getText() != null && nameField.getText().length() != 0 &&
@@ -63,6 +74,9 @@ public class RegistrationController {
         }
     }
 
+    /**
+     * Sets the account types in the combo box
+     */
     @FXML
     public void initialize() {
         typeBox.getItems().setAll(User.AccountType.values());

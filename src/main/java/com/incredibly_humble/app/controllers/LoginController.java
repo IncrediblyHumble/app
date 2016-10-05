@@ -14,7 +14,7 @@ import javafx.scene.Node;
 import java.io.IOException;
 
 /**
- * Created by Derek Henry
+ * Controller for the login screen
  */
 public class LoginController {
     @FXML
@@ -30,6 +30,9 @@ public class LoginController {
 
     /**
      * Called when the user clicks cancel.
+     *
+     * @param event ActionEvent connected to the cancel button
+     * @throws IOException in case of error in the ActionEvent
      */
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
@@ -37,6 +40,12 @@ public class LoginController {
         screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
     }
 
+    /**
+     * Event Handler for the ok button
+     *
+     * @param event ActionEvent connected to the ok button
+     * @throws IOException in case of error in the ActionEvent
+     */
     @FXML
     private void handleOKPressed(ActionEvent event) throws IOException {
         //First validate the data to insure it is at least reasonable
@@ -59,10 +68,23 @@ public class LoginController {
         }
     }
 
+    /**
+     * Event Handler for the register button
+     *
+     * @param event ActionEvent connected to the register button
+     * @throws IOException in case of error in the ActionEvent
+     */
     @FXML private void handleRegisterPressed(ActionEvent event)throws IOException{
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, "/views/registration.fxml");
     }
+
+    /**
+     *
+     * @param context String that says what kind of error is happening
+     * @param header String description of how to fix the error
+     * @param title String that gives the title of the error
+     */
     private void alert(String context, String header, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR, context);
         alert.setTitle(title);
