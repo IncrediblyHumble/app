@@ -60,7 +60,16 @@ public interface Database {
      */
     public User getCurrentUser();
 
+    /**
+     * adds a water report to the WaterReports table
+     * @param report
+     * @return
+     */
     public WaterReport addWaterReport(WaterReport report);
 
+    /**
+     * Gets all the water reports as an ArrayList
+     * @return
+     */
     public ArrayList<WaterReport> getWaterReports();
 }

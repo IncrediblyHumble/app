@@ -15,8 +15,10 @@ public class InMemoryDatabase implements Database {
     private HashMap<Integer, WaterReport> waterReports;
     private User loggedIn;
     private int waterReportId = 0;
+
     public InMemoryDatabase(){
         users = new HashMap<String,User>();
+        users.put("foo", new User("foo","bar", User.AccountType.USER));
         waterReports = new HashMap<Integer, WaterReport>();
     }
     /**
@@ -91,6 +93,7 @@ public class InMemoryDatabase implements Database {
     private int checkoutWaterReportId(){
         return waterReportId++;
     }
+
     public ArrayList<WaterReport> getWaterReports(){
         return new ArrayList<>(waterReports.values());
     }
