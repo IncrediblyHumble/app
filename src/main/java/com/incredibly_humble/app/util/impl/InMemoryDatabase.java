@@ -2,6 +2,7 @@ package com.incredibly_humble.app.util.impl;
 
 import com.google.inject.Singleton;
 import com.incredibly_humble.app.models.User;
+import com.incredibly_humble.app.models.WaterReport;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 
@@ -11,9 +12,12 @@ import java.util.HashMap;
 @Singleton
 public class InMemoryDatabase implements Database {
     private HashMap<String, User> users;
+    private HashMap<Integer, WaterReport> waterReports;
     private User loggedIn;
+    private int waterReportId = 0;
     public InMemoryDatabase(){
         users = new HashMap<String,User>();
+        waterReports = new HashMap<Integer, WaterReport>();
     }
     /**
      * @return the user we just added into database
@@ -76,5 +80,15 @@ public class InMemoryDatabase implements Database {
         return loggedIn;
     }
 
+    @Override
+    public WaterReport addWaterReport(WaterReport report) {
+        report.setId(checkoutWaterReportId());
+        report.setWorkerName(loggedIn.getName());
+        waterReports.put(report.getId(), report);
+        return report;
+    }
 
+    private int checkoutWaterReportId(){
+        return waterReportId++;
+    }
 }

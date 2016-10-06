@@ -45,7 +45,7 @@ public class RegistrationController {
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/login.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.LOGIN_SCREEN);
     }
 
     /**
@@ -64,7 +64,7 @@ public class RegistrationController {
                         (User.AccountType) typeBox.getSelectionModel().getSelectedItem()));
                 user.verify(nameField.getText(), passField.getText());
                 screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
-                        "/views/home.fxml");
+                        ScreenSwitch.HOME_SCREEN);
             } catch (DatabaseException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
                 alert.setTitle("ERROR");

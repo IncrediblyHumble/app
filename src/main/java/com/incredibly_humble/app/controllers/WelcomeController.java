@@ -25,6 +25,6 @@ public class WelcomeController {
      */
     public void login(ActionEvent event)throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/login.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.LOGIN_SCREEN);
     }
 }

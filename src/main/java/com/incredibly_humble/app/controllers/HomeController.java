@@ -25,7 +25,7 @@ public class HomeController {
      */
     public void logout(ActionEvent event) throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.WELCOME_SCREEN);
     }
 
     /**
@@ -36,6 +36,6 @@ public class HomeController {
      */
     public void gotoProfile(ActionEvent event) throws IOException{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/profile.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.PROFILE_SCREEN);
     }
 }

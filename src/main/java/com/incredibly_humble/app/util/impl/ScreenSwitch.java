@@ -10,6 +10,12 @@ import java.io.IOException;
 
 public class ScreenSwitch {
 
+    public static String HOME_SCREEN = "/views/home.fxml";
+    public static String LOGIN_SCREEN= "/views/login.fxml";
+    public static String PROFILE_SCREEN = "/views/profile.fxml";
+    public static String REGISTRATION_SCREEN = "/views/registration.fxml";
+    public static String WATER_SOURCE_SCREEN = "/views/waterSource.fxml";
+    public static String WELCOME_SCREEN = "/views/welcome.fxml";
     @Inject
     private FXMLLoader fxmlLoader;
     /**

@@ -60,7 +60,7 @@ public class ProfileController {
         user.setPhone(phone.getText());
         db.updateUser(user);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/home.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
 
     }
 
@@ -72,6 +72,6 @@ public class ProfileController {
      */
     public void cancelProfile(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/home.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
     }
 }

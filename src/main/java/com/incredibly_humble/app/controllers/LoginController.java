@@ -37,7 +37,7 @@ public class LoginController {
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.WELCOME_SCREEN);
     }
 
     /**
@@ -54,7 +54,7 @@ public class LoginController {
             try {
                 if (user.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    screenSwitch.toScreen(primaryStage, "/views/home.fxml");
+                    screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
                 } else {
                     alert("Invalid username or password", "Username and Password are incorrect", "Invalid username or password");
 
@@ -76,7 +76,7 @@ public class LoginController {
      */
     @FXML private void handleRegisterPressed(ActionEvent event)throws IOException{
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, "/views/registration.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.REGISTRATION_SCREEN);
     }
 
     /**
