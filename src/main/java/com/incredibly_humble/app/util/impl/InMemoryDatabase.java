@@ -92,7 +92,7 @@ public class InMemoryDatabase implements Database {
         return waterReportId++;
     }
     public ArrayList<WaterReport> getWaterReports(){
-        return new ArrayList<WaterReport>(waterReports.values());
+        return new ArrayList<>(waterReports.values());
     }
 
 }
