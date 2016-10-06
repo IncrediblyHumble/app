@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public interface Database {
     /**
      * adds a user to the database
+     *
      * @param u a new user
      * @return the added user
      * @throws DatabaseException
@@ -20,6 +21,7 @@ public interface Database {
 
     /**
      * updates the user data
+     *
      * @param u the updated user
      * @return the updated user
      * @throws DatabaseException
@@ -28,6 +30,7 @@ public interface Database {
 
     /**
      * deletes a user from the database
+     *
      * @param u the user data to be deleted
      * @return the user which was deleted
      * @throws DatabaseException
@@ -36,6 +39,7 @@ public interface Database {
 
     /**
      * checks to see if inputted login info is valid in the database
+     *
      * @param user the username to be searched for
      * @param pass the password to be searched for
      * @return true if the username/password were found
@@ -44,15 +48,19 @@ public interface Database {
 
     /**
      * gets a list of all of the users in the database
+     *
      * @return an arrayList of the users
      */
     public ArrayList<User> getUsers();
 
     /**
      * checks to see who is currently using the program
+     *
      * @return the current user data
      */
     public User getCurrentUser();
 
     public WaterReport addWaterReport(WaterReport report);
+
+    public ArrayList<WaterReport> getWaterReports();
 }

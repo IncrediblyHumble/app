@@ -91,4 +91,8 @@ public class InMemoryDatabase implements Database {
     private int checkoutWaterReportId(){
         return waterReportId++;
     }
+    public ArrayList<WaterReport> getWaterReports(){
+        return new ArrayList<WaterReport>(waterReports.values());
+    }
+
 }
