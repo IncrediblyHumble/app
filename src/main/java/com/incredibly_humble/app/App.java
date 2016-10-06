@@ -29,7 +29,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         context.init();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Clean Water Crowdsourcing");
         screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
         primaryStage.show();
     }
