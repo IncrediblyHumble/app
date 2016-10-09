@@ -19,15 +19,15 @@ public class WaterReport {
         Potable
     }
 
-    private Date reported;
+    private Date dateReported;
     private int id;
     private String workerName;
     private String location;
     private WaterType type;
     private WaterCondition condition;
 
-    public WaterReport(Date reported, String location, WaterType type, WaterCondition condition) {
-        this.reported = reported;
+    public WaterReport(Date dateReported, String location, WaterType type, WaterCondition condition) {
+        this.dateReported = dateReported;
         this.id = id;
         this.workerName = workerName;
         this.location = location;
@@ -35,8 +35,8 @@ public class WaterReport {
         this.condition = condition;
     }
 
-    public Date getReported() {
-        return reported;
+    public Date getDateReported() {
+        return dateReported;
     }
 
     public int getId() {

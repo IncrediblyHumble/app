@@ -13,17 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseOverviewController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.WaterHistoryReportController">
    <children>
       <SplitPane dividerPositions="0.4694767441860465" layoutX="179.0" layoutY="98.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="234.0">
                <children>
-                  <TableView fx:id="courseTable" layoutX="17.0" layoutY="27.0" prefHeight="447.0" prefWidth="293.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="27.0">
+                  <TableView fx:id="waterReportTable" layoutX="17.0" layoutY="27.0" prefHeight="447.0" prefWidth="293.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="27.0">
                     <columns>
-                      <TableColumn fx:id="courseSchoolColumn" prefWidth="74.0" text="Report #" />
-                      <TableColumn fx:id="courseNumberColumn" prefWidth="115.0" text="Location" />
-                        <TableColumn prefWidth="75.0" text="Condition" />
+                      <TableColumn fx:id="reportNumCol" prefWidth="74.0" text="Report #" />
+                      <TableColumn fx:id="locationCol" prefWidth="115.0" text="Location" />
+                        <TableColumn fx:id="conditionCol" prefWidth="75.0" text="Condition" />
                     </columns>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -90,7 +90,7 @@
                                     <Insets left="30.0" top="40.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label GridPane.columnIndex="1">
+                              <Label fx:id="dateLabel" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="50.0" />
                                  </GridPane.margin>
@@ -98,15 +98,7 @@
                                     <Insets right="100.0" />
                                  </padding>
                               </Label>
-                              <Label layoutX="129.0" layoutY="42.0" GridPane.columnIndex="1">
-                                 <padding>
-                                    <Insets right="50.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="50.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label GridPane.columnIndex="1">
+                              <Label fx:id="idLabel" GridPane.columnIndex="1">
                                  <padding>
                                     <Insets right="50.0" />
                                  </padding>
@@ -114,7 +106,7 @@
                                     <Insets top="20.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label GridPane.columnIndex="1">
+                              <Label fx:id="reportedByLabel" GridPane.columnIndex="1">
                                  <padding>
                                     <Insets right="50.0" />
                                  </padding>
@@ -122,7 +114,7 @@
                                     <Insets top="90.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="locationLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <padding>
                                     <Insets right="50.0" />
                                  </padding>
@@ -130,7 +122,7 @@
                                     <Insets bottom="100.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="typeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="30.0" />
                                  </GridPane.margin>
@@ -138,7 +130,7 @@
                                     <Insets right="50.0" />
                                  </padding>
                               </Label>
-                              <Label GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="conditionLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets top="40.0" />
                                  </GridPane.margin>
@@ -148,7 +140,7 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#addStudentPressed" text="Back">
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#backPressed" text="Back">
                            <font>
                               <Font size="14.0" />
                            </font>

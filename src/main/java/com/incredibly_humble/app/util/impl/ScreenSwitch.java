@@ -16,6 +16,7 @@ public class ScreenSwitch {
     public static String REGISTRATION_SCREEN = "/views/registration.fxml";
     public static String WATER_SOURCE_SCREEN = "/views/waterSource.fxml";
     public static String WELCOME_SCREEN = "/views/welcome.fxml";
+    public static String WATER_REPORT_HISTORY_SCREEN = "/views/waterReportHistory.fxml";
     @Inject
     private FXMLLoader fxmlLoader;
     /**
