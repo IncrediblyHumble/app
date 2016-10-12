@@ -98,4 +98,8 @@ public class InMemoryDatabase implements Database {
         return new ArrayList<>(waterReports.values());
     }
 
+    public void logout(){
+        this.loggedIn = null;
+    }
+
 }

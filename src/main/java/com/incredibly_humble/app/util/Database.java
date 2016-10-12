@@ -72,4 +72,9 @@ public interface Database {
      * @return
      */
     public ArrayList<WaterReport> getWaterReports();
+
+    /**
+     * Logs the user out.
+     */
+    public void logout();
 }

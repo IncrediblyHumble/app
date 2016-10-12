@@ -19,7 +19,7 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" text="View Water Availability Report">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#gotoViewReports" text="View Water Availability Report">
                <font>
                   <Font size="18.0" />
                </font>

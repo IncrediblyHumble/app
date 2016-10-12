@@ -27,4 +27,10 @@ public class WelcomeController {
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, ScreenSwitch.LOGIN_SCREEN);
     }
+
+
+    public void gotoViewReports(ActionEvent event) throws IOException {
+        screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
+                ScreenSwitch.WATER_REPORT_HISTORY_SCREEN);
+    }
 }

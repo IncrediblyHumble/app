@@ -1,6 +1,7 @@
 package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
+import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ public class HomeController {
     @Inject
     private ScreenSwitch screenSwitch;
 
+    @Inject
+    private Database db;
+
     /**
      * Event handler for the logout button
      *
@@ -25,6 +29,7 @@ public class HomeController {
      * @throws IOException in case of error in the ActionEvent
      */
     public void logout(ActionEvent event) throws IOException {
+        db.logout();
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, ScreenSwitch.WELCOME_SCREEN);
     }

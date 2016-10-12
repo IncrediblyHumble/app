@@ -36,12 +36,18 @@ public class WaterHistoryReportController {
     private TableColumn<WaterReport, String> conditionCol;
     @FXML
     private TableView<WaterReport> waterReportTable;
-    @FXML private Label dateLabel;
-    @FXML private Label idLabel;
-    @FXML private Label reportedByLabel;
-    @FXML private Label locationLabel;
-    @FXML private Label typeLabel;
-    @FXML private Label conditionLabel;
+    @FXML
+    private Label dateLabel;
+    @FXML
+    private Label idLabel;
+    @FXML
+    private Label reportedByLabel;
+    @FXML
+    private Label locationLabel;
+    @FXML
+    private Label typeLabel;
+    @FXML
+    private Label conditionLabel;
 
 
     @FXML
@@ -72,9 +78,10 @@ public class WaterHistoryReportController {
     }
 
     @FXML
-    public void backPressed(ActionEvent event)throws IOException{
-        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
+    public void backPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        screenSwitch.toScreen(primaryStage,
+                db.getCurrentUser() == null ? ScreenSwitch.WELCOME_SCREEN : ScreenSwitch.HOME_SCREEN);
     }
 
 
