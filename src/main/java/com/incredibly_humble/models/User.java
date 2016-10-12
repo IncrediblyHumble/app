@@ -1,8 +1,10 @@
-package com.incredibly_humble.app.models;
+package com.incredibly_humble.models;
 
-public class User {
+import java.io.Serializable;
 
-    public enum AccountType {
+public class User implements Serializable{
+
+    public static enum AccountType {
         USER,
         WORKER,
         MANAGER,
@@ -104,4 +106,5 @@ public class User {
             return false;
         }
     }
+
 }

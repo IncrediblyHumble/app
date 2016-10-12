@@ -1,8 +1,8 @@
 package com.incredibly_humble.app.util.impl;
 
 import com.google.inject.Singleton;
-import com.incredibly_humble.app.models.User;
-import com.incredibly_humble.app.models.WaterReport;
+import com.incredibly_humble.models.User;
+import com.incredibly_humble.models.WaterReport;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 

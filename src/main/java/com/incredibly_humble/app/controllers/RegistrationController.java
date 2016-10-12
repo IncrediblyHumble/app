@@ -1,7 +1,7 @@
 package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
-import com.incredibly_humble.app.models.User;
+import com.incredibly_humble.models.User;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.Login;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;

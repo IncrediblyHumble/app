@@ -1,20 +1,15 @@
 package com.incredibly_humble.app.controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.google.inject.Inject;
-import com.incredibly_humble.app.models.User;
+import com.incredibly_humble.models.User;
 import com.incredibly_humble.app.util.Database;
-import com.incredibly_humble.app.util.Login;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**

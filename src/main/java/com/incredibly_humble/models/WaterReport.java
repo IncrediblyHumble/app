@@ -1,4 +1,4 @@
-package com.incredibly_humble.app.models;
+package com.incredibly_humble.models;
 
 import java.util.Date;
 

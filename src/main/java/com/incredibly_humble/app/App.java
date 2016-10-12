@@ -2,12 +2,11 @@ package com.incredibly_humble.app;
 
 import com.gluonhq.ignite.guice.GuiceContext;
 import com.google.inject.Inject;
+import com.incredibly_humble.models.User;
 import com.incredibly_humble.app.util.impl.Module;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
+import com.incredibly_humble.app.util.impl.exceptions.RemoteDatabase;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
