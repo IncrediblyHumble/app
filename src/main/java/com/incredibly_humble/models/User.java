@@ -2,7 +2,7 @@ package com.incredibly_humble.models;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
     public static enum AccountType {
         USER,
@@ -14,14 +14,24 @@ public class User implements Serializable{
     private String name;
     private String password;
     private String email = "";
-    private String phone = "";
+    AccountType type;
     private boolean subscribed;
     private String address = "";
-    AccountType type;
-    public User(String name, String password, AccountType type) {
+    private String phone = "";
+
+    public User(String name, String email, String password, AccountType type) {
         this.name = name;
+        this.email = email;
         this.password = password;
         this.type = type;
+    }
+
+    public User(String name, String email, String password, AccountType type,
+                boolean subscribed, String address, String phone) {
+        this(name, email, password, type);
+        this.phone = phone;
+        this.subscribed = subscribed;
+        this.address = address;
     }
 
     /**
@@ -39,12 +49,12 @@ public class User implements Serializable{
     }
 
     /**
-     *
      * @return password
      */
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
+
     /**
      * @param email the email to set
      */
@@ -93,6 +103,15 @@ public class User implements Serializable{
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public AccountType getType() {
+        return this.type;
+    }
+
+    public boolean getSubscribed(){
+        return this.subscribed;
+    }
+
     @Override
     public boolean equals(Object comparison) {
         if (comparison instanceof User) {

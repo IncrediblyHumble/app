@@ -18,7 +18,7 @@ public class InMemoryDatabase implements Database {
 
     public InMemoryDatabase(){
         users = new HashMap<String,User>();
-        users.put("foo", new User("foo","bar", User.AccountType.USER));
+        users.put("foo", new User("foo","foomail","bar", User.AccountType.USER));
         waterReports = new HashMap<Integer, WaterReport>();
     }
     /**

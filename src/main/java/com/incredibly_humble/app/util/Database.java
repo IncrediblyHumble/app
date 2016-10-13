@@ -44,7 +44,7 @@ public interface Database {
      * @param pass the password to be searched for
      * @return true if the username/password were found
      */
-    public boolean checkCredentialsAndLogin(String user, String pass);
+    public boolean checkCredentialsAndLogin(String user, String pass)throws DatabaseException;
 
     /**
      * gets a list of all of the users in the database

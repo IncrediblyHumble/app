@@ -1,5 +1,6 @@
 package com.incredibly_humble.app.util;
 
+import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
 /**
@@ -14,5 +15,5 @@ public interface Login {
      * @return a boolean whether login was successful or not
      * @throws TriesExceededException - thrown after three failed attempts.
      */
-    public boolean verify(String username, String password) throws TriesExceededException;
+    public boolean verify(String username, String password) throws DatabaseException;
 }

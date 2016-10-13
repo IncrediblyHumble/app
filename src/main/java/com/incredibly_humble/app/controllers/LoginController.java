@@ -2,6 +2,7 @@ package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
+import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -55,12 +56,9 @@ public class LoginController {
                 if (user.verify(nameField.getText(), passField.getText())) {
                     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
-                } else {
-                    alert("Invalid username or password", "Username and Password are incorrect", "Invalid username or password");
-
                 }
-            } catch (TriesExceededException e) {
-                alert("Invalid username or password", "Please correct invalid fields", "Too many attempts");
+            } catch (DatabaseException e) {
+                alert("Error", e.getMessage(), "Please correct");
 
             }
         } else {
@@ -74,16 +72,16 @@ public class LoginController {
      * @param event ActionEvent connected to the register button
      * @throws IOException in case of error in the ActionEvent
      */
-    @FXML private void handleRegisterPressed(ActionEvent event)throws IOException{
+    @FXML
+    private void handleRegisterPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, ScreenSwitch.REGISTRATION_SCREEN);
     }
 
     /**
-     *
      * @param context String that says what kind of error is happening
-     * @param header String description of how to fix the error
-     * @param title String that gives the title of the error
+     * @param header  String description of how to fix the error
+     * @param title   String that gives the title of the error
      */
     private void alert(String context, String header, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR, context);

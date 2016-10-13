@@ -40,9 +40,9 @@ public class WaterSourceController {
 
     @FXML
     private void onSubmit(ActionEvent event) throws IOException {
-        db.addWaterReport(new WaterReport(
+        db.addWaterReport(new WaterReport(0,
                 new Date(),
-                locationField.getText(),
+                locationField.getText(), db.getCurrentUser().getName(),
                 (WaterReport.WaterType) typeBox.getSelectionModel().getSelectedItem(),
                 (WaterReport.WaterCondition) conditionBox.getSelectionModel().getSelectedItem()
         ));

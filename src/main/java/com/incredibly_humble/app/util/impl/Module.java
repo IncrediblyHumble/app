@@ -12,6 +12,6 @@ public class Module extends AbstractModule {
     protected void configure() {
         bind(Login.class).to(DatabaseLogin.class);
         bind(ScreenSwitch.class);
-        bind(Database.class).to(InMemoryDatabase.class);
+        bind(Database.class).toInstance(new RemoteDatabase());
     }
 }

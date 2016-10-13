@@ -26,6 +26,8 @@ public class RegistrationController {
 
     @FXML
     private TextField passField;
+    @FXML
+    private TextField emailField;
 
     @FXML
     private ComboBox typeBox;
@@ -57,18 +59,19 @@ public class RegistrationController {
     @FXML
     private void handleRegistrationPressed(ActionEvent event) throws IOException, TriesExceededException {
         if (nameField.getText() != null && nameField.getText().length() != 0 &&
-                passField.getText() != null && passField.getText().length() != 0) {
+                passField.getText() != null && passField.getText().length() != 0
+                && emailField.getText() != null && emailField.getText().length() != 0) {
             try {
-                db.addUser(new User(nameField.getText(),
+                db.addUser(new User(nameField.getText(), emailField.getText(),
                         passField.getText(),
                         (User.AccountType) typeBox.getSelectionModel().getSelectedItem()));
-                user.verify(nameField.getText(), passField.getText());
+                user.verify(emailField.getText(), passField.getText());
                 screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                         ScreenSwitch.HOME_SCREEN);
             } catch (DatabaseException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+                Alert alert = new Alert(Alert.AlertType.ERROR,"Please Fix");
                 alert.setTitle("ERROR");
-                alert.setHeaderText("Please Fix");
+                alert.setHeaderText(e.getMessage());
                 alert.showAndWait();
             }
         }

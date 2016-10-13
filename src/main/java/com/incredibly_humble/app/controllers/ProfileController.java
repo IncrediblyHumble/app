@@ -22,7 +22,7 @@ public class ProfileController {
     @FXML
     private TextField phone;
     @FXML
-    private TextField email;
+    private Label emailLabel;
     @FXML
     private TextField address;
     @Inject
@@ -39,7 +39,7 @@ public class ProfileController {
         user = db.getCurrentUser();
         name.setText(user.getName());
         phone.setText(user.getPhone());
-        email.setText(user.getEmail());
+        emailLabel.setText(user.getEmail());
         address.setText(user.getAddress());
     }
 
@@ -51,7 +51,6 @@ public class ProfileController {
      */
     public void saveProfile(ActionEvent event) throws Exception {
         user.setAddress(address.getText());
-        user.setEmail(email.getText());
         user.setPhone(phone.getText());
         db.updateUser(user);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

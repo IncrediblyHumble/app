@@ -1,6 +1,7 @@
 package com.incredibly_humble.app.util.impl;
 
 import com.incredibly_humble.app.util.Login;
+import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
 /**
@@ -14,7 +15,7 @@ public class LoginHardcoded implements Login{
      * @param password password to login
      * @throws TriesExceededException if person logins incorrectly 3 times
      */
-    public boolean verify(String username, String password) throws TriesExceededException {
+    public boolean verify(String username, String password) throws DatabaseException {
         if(username.equals("foo") && password.equals("bar") && (count < 3)){
             count = 0;
             return true;
@@ -22,7 +23,7 @@ public class LoginHardcoded implements Login{
         else {
             count++;
             if(count >= 3){
-                throw new TriesExceededException();
+                throw new DatabaseException("");
             }
             return false;
         }

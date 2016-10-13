@@ -20,6 +20,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <Label text="Name:">
@@ -30,7 +31,7 @@
             <Insets left="100.0" />
          </GridPane.margin>
       </Label>
-      <Label text="New Password: " GridPane.rowIndex="1">
+      <Label text="New Password: " GridPane.rowIndex="2">
          <padding>
             <Insets left="20.0" />
          </padding>
@@ -42,11 +43,11 @@
          <GridPane.margin>
             <Insets left="20.0" right="20.0" />
          </GridPane.margin></TextField>
-      <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="20.0" right="20.0" />
          </GridPane.margin></TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
             <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleRegistrationPressed" text="Register" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
@@ -58,12 +59,25 @@
             <Insets />
          </GridPane.margin>
       </HBox>
-      <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="20.0" right="20.0" />
          </GridPane.margin>
       </ComboBox>
-      <Label text="Account Type" GridPane.rowIndex="2">
+      <Label text="Account Type" GridPane.rowIndex="3">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="100.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </GridPane.margin>
+      </TextField>
+      <Label text="email" GridPane.rowIndex="1">
          <padding>
             <Insets left="20.0" />
          </padding>
