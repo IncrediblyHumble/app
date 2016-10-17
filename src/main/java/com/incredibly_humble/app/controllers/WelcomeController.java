@@ -31,6 +31,6 @@ public class WelcomeController {
 
     public void gotoViewReports(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
-                ScreenSwitch.WATER_REPORT_HISTORY_SCREEN);
+                ScreenSwitch.WATER_AVAILABILITY_MAP_SCREEN);
     }
 }

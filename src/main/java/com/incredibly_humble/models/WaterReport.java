@@ -25,6 +25,7 @@ public class WaterReport {
     private String location;
     private WaterType type;
     private WaterCondition condition;
+    private Location loc;
 
     public WaterReport(int id, Date dateReported, String location, String workerName, WaterType type, WaterCondition condition) {
         this.dateReported = dateReported;
@@ -64,5 +65,5 @@ public class WaterReport {
     public WaterCondition getCondition() {
         return condition;
     }
-
+    public Location getLoc(){return new Location(34,-88);}
 }
