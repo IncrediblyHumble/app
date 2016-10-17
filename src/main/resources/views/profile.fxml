@@ -30,7 +30,7 @@
                               <Insets top="2.0" fx:id="x3" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="name" editable="false" minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="name" editable="true" minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label id="Label" font="$x1" text="Email:" GridPane.margin="$x3" GridPane.rowIndex="2" />
                         <Label id="Label" font="$x1" text="Phone:" GridPane.margin="$x3" GridPane.rowIndex="4" />
                         <TextField fx:id="phone" minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />

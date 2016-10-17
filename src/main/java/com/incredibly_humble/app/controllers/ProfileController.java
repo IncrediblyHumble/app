@@ -50,6 +50,7 @@ public class ProfileController {
      * @throws IOException in case of error in the ActionEvent
      */
     public void saveProfile(ActionEvent event) throws Exception {
+        user.setName(name.getText());
         user.setAddress(address.getText());
         user.setPhone(phone.getText());
         db.updateUser(user);
