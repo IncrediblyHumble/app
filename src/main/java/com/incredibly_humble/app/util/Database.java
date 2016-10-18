@@ -77,4 +77,6 @@ public interface Database {
      * Logs the user out.
      */
     public void logout();
+
+    public void deleteWaterReport(WaterReport report);
 }

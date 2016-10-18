@@ -102,4 +102,9 @@ public class InMemoryDatabase implements Database {
         this.loggedIn = null;
     }
 
+    @Override
+    public void deleteWaterReport(WaterReport report) {
+
+    }
+
 }

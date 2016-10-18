@@ -163,4 +163,28 @@ public class RemoteDatabase implements Database {
     public void logout() {
         this.currentUser= null;
     }
+
+    @Override
+    public void deleteWaterReport(WaterReport report) {
+        try {
+            URL url = new URL(base_url + "deleteWaterReport");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            //add reuqest header
+            con.setRequestMethod("POST");
+
+            // Send post request
+            con.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+            wr.write(gson.toJson(report));
+            wr.flush();
+            wr.close();
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

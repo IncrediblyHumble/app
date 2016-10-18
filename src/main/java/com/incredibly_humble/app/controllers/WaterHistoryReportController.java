@@ -51,7 +51,7 @@ public class WaterHistoryReportController {
         reportNumCol.setCellValueFactory(cellData ->
                 new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
         locationCol.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getLocation()));
+                new SimpleStringProperty(cellData.getValue().getLocation().toString()));
         conditionCol.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getCondition().toString()));
         waterReportTable.setRowFactory(tableView -> {
@@ -68,7 +68,7 @@ public class WaterHistoryReportController {
         dateLabel.setText(report.getDateReported().toString());
         idLabel.setText(String.valueOf(report.getId()));
         reportedByLabel.setText(report.getWorkerName());
-        locationLabel.setText(report.getLocation());
+        locationLabel.setText(report.getLocation().toString());
         typeLabel.setText(report.getType().toString());
         conditionLabel.setText(report.getCondition().toString());
     }

@@ -1,8 +1,5 @@
 package com.incredibly_humble.models;
 
-/**
- * Created by noam on 10/17/16.
- */
 public class Location {
     private double longitude;
     private double latitude;

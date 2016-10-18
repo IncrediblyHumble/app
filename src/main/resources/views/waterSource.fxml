@@ -68,8 +68,8 @@
          <children>
             <Label text="Lat" GridPane.halignment="CENTER" />
             <Label text="Long" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="latField" onAction="#locationChange" GridPane.columnIndex="1" />
-            <TextField fx:id="longField" onAction="#locationChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="latField" onKeyPressed="#locationChange" GridPane.columnIndex="1" />
+            <TextField fx:id="longField" onKeyPressed="#locationChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </left>

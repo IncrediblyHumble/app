@@ -27,7 +27,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception{
         context.init();
         primaryStage.setTitle("Clean Water Crowdsourcing");
-        screenSwitch.toScreen(primaryStage, "/views/welcome.fxml");
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.WELCOME_SCREEN);
         primaryStage.show();
     }
 
