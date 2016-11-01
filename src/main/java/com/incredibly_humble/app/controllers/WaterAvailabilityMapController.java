@@ -3,7 +3,7 @@ package com.incredibly_humble.app.controllers;
 import com.google.inject.Inject;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
-import com.incredibly_humble.models.WaterReport;
+import com.incredibly_humble.models.WaterSourceReport;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
@@ -42,7 +42,7 @@ public class WaterAvailabilityMapController implements Initializable, MapCompone
     private Database db;
 
     private int onReport = 0;
-    private ArrayList<WaterReport> reports;
+    private ArrayList<WaterSourceReport> reports;
     private GoogleMap map;
     private ArrayList<Marker> markers;
 
@@ -67,9 +67,9 @@ public class WaterAvailabilityMapController implements Initializable, MapCompone
 
         map = mapView.createMap(options);
 
-        reports = db.getWaterReports();
+        reports = db.getWaterSourceReports();
         for (int i = 0; i < reports.size(); i++) {
-            WaterReport r = reports.get(i);
+            WaterSourceReport r = reports.get(i);
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(r.getLocation().getLatitude(), r.getLocation().getLongitude());
 
@@ -84,8 +84,7 @@ public class WaterAvailabilityMapController implements Initializable, MapCompone
                     (JSObject obj) -> {
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
                         String description = String.format(
-                                "<p>Condition: %s</p><p>Type: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p>",
-                                r.getCondition().toString(),
+                                "<p>Type: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p>",
                                 r.getType().toString(), r.getDateReported().toString(),
                                 r.getWorkerName(), r.getLocation().toString());
                         infoWindowOptions.content(description);
@@ -115,7 +114,7 @@ public class WaterAvailabilityMapController implements Initializable, MapCompone
         }
     }
 
-    private void moveToReport(WaterReport r, boolean reindex) {
+    private void moveToReport(WaterSourceReport r, boolean reindex) {
         LatLong loc = new LatLong(r.getLocation().getLatitude(), r.getLocation().getLongitude());
         reportLabel.setText("Report " + r.getId());
         map.setCenter(loc);
@@ -152,7 +151,7 @@ public class WaterAvailabilityMapController implements Initializable, MapCompone
     @FXML
     private void onDelete(ActionEvent event) throws IOException {
         if(this.reports.size() >0) {
-            db.deleteWaterReport(this.reports.remove(this.onReport));
+            db.deleteWaterSourceReport(this.reports.remove(this.onReport));
             map.removeMarker(markers.get(this.onReport));
             int currentZoom = map.getZoom();
             map.setZoom(currentZoom - 1);

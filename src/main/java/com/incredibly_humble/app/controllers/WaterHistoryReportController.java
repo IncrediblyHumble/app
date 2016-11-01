@@ -1,7 +1,7 @@
 package com.incredibly_humble.app.controllers;
 
 import com.google.inject.Inject;
-import com.incredibly_humble.models.WaterReport;
+import com.incredibly_humble.models.WaterSourceReport;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import javafx.beans.property.SimpleStringProperty;
@@ -25,13 +25,11 @@ public class WaterHistoryReportController {
     @Inject
     private Database db;
     @FXML
-    private TableColumn<WaterReport, String> reportNumCol;
+    private TableColumn<WaterSourceReport, String> reportNumCol;
     @FXML
-    private TableColumn<WaterReport, String> locationCol;
+    private TableColumn<WaterSourceReport, String> locationCol;
     @FXML
-    private TableColumn<WaterReport, String> conditionCol;
-    @FXML
-    private TableView<WaterReport> waterReportTable;
+    private TableView<WaterSourceReport> waterReportTable;
     @FXML
     private Label dateLabel;
     @FXML
@@ -42,8 +40,6 @@ public class WaterHistoryReportController {
     private Label locationLabel;
     @FXML
     private Label typeLabel;
-    @FXML
-    private Label conditionLabel;
 
 
     @FXML
@@ -52,25 +48,22 @@ public class WaterHistoryReportController {
                 new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
         locationCol.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getLocation().toString()));
-        conditionCol.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getCondition().toString()));
         waterReportTable.setRowFactory(tableView -> {
-            TableRow<WaterReport> row = new TableRow<>();
+            TableRow<WaterSourceReport> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 this.setWaterReportView(row.getItem());
             });
             return row;
         });
-        waterReportTable.getItems().setAll(db.getWaterReports());
+        waterReportTable.getItems().setAll(db.getWaterSourceReports());
     }
 
-    private void setWaterReportView(WaterReport report) {
+    private void setWaterReportView(WaterSourceReport report) {
         dateLabel.setText(report.getDateReported().toString());
         idLabel.setText(String.valueOf(report.getId()));
         reportedByLabel.setText(report.getWorkerName());
         locationLabel.setText(report.getLocation().toString());
         typeLabel.setText(report.getType().toString());
-        conditionLabel.setText(report.getCondition().toString());
     }
 
     @FXML

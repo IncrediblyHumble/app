@@ -4,9 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import com.incredibly_humble.models.User;
-import com.incredibly_humble.models.WaterReport;
+import com.incredibly_humble.models.WaterQualityReport;
+import com.incredibly_humble.models.WaterSourceReport;
 import com.incredibly_humble.app.util.Database;
-import com.incredibly_humble.models.WaterReports;
+import com.incredibly_humble.models.WaterSourceReports;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -113,9 +114,9 @@ public class RemoteDatabase implements Database {
     }
 
     @Override
-    public WaterReport addWaterReport(WaterReport report) {
+    public WaterSourceReport addWaterSourceReport(WaterSourceReport report) {
         try {
-            URL url = new URL(base_url + "addWaterReport");
+            URL url = new URL(base_url + "addWaterSourceReport");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             //add reuqest header
@@ -130,9 +131,9 @@ public class RemoteDatabase implements Database {
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
-            WaterReport waterReport = gson.fromJson(readResponse(in), WaterReport.class);
+            WaterSourceReport waterSourceReport = gson.fromJson(readResponse(in), WaterSourceReport.class);
             in.close();
-            return waterReport;
+            return waterSourceReport;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -140,9 +141,9 @@ public class RemoteDatabase implements Database {
     }
 
     @Override
-    public ArrayList<WaterReport> getWaterReports() {
+    public ArrayList<WaterSourceReport> getWaterSourceReports() {
         try {
-            URL url = new URL(base_url + "getWaterReports");
+            URL url = new URL(base_url + "getWaterSourceReports");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             //add reuqest header
@@ -150,7 +151,7 @@ public class RemoteDatabase implements Database {
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
-            WaterReports reports = gson.fromJson(readResponse(in), WaterReports.class);
+            WaterSourceReports reports = gson.fromJson(readResponse(in), WaterSourceReports.class);
             in.close();
             return reports.getReports();
         } catch (Exception e) {
@@ -165,9 +166,9 @@ public class RemoteDatabase implements Database {
     }
 
     @Override
-    public void deleteWaterReport(WaterReport report) {
+    public void deleteWaterSourceReport(WaterSourceReport report) {
         try {
-            URL url = new URL(base_url + "deleteWaterReport");
+            URL url = new URL(base_url + "deleteWaterSourceReport");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             //add reuqest header
@@ -186,5 +187,33 @@ public class RemoteDatabase implements Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public WaterQualityReport addWaterQualityReport(WaterQualityReport report) {
+
+        try {
+            URL url = new URL(base_url + "addWaterQualityReport");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            //add reuqest header
+            con.setRequestMethod("POST");
+
+            // Send post request
+            con.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+            wr.write(gson.toJson(report));
+            wr.flush();
+            wr.close();
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            WaterQualityReport waterQualityReport = gson.fromJson(readResponse(in), WaterQualityReport.class);
+            in.close();
+            return waterQualityReport;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

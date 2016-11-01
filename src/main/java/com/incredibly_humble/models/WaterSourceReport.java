@@ -2,7 +2,7 @@ package com.incredibly_humble.models;
 
 import java.util.Date;
 
-public class WaterReport {
+public class WaterSourceReport {
     public enum WaterType {
         Bottled,
         Well,
@@ -12,27 +12,18 @@ public class WaterReport {
         Other
     }
 
-    public enum WaterCondition {
-        Waste,
-        Treatable_Clear,
-        Treatable_Muddy,
-        Potable
-    }
-
     private Date dateReported;
     private int id;
     private String workerName;
     private WaterType type;
-    private WaterCondition condition;
     private Location location;
 
-    public WaterReport(int id, Date dateReported, Location location, String workerName, WaterType type, WaterCondition condition) {
+    public WaterSourceReport(int id, Date dateReported, Location location, String workerName, WaterType type) {
         this.dateReported = dateReported;
         this.id = id;
         this.workerName = workerName;
         this.location = location;
         this.type = type;
-        this.condition = condition;
     }
 
     public Date getDateReported() {
@@ -58,8 +49,5 @@ public class WaterReport {
         return type;
     }
 
-    public WaterCondition getCondition() {
-        return condition;
-    }
     public Location getLocation(){return this.location;}
 }

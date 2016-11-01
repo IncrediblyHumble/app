@@ -1,7 +1,8 @@
 package com.incredibly_humble.app.util;
 
 import com.incredibly_humble.models.User;
-import com.incredibly_humble.models.WaterReport;
+import com.incredibly_humble.models.WaterQualityReport;
+import com.incredibly_humble.models.WaterSourceReport;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 
 import java.util.ArrayList;
@@ -61,22 +62,25 @@ public interface Database {
     public User getCurrentUser();
 
     /**
-     * adds a water report to the WaterReports table
+     * adds a water report to the WaterSourceReports table
      * @param report
      * @return
      */
-    public WaterReport addWaterReport(WaterReport report);
+    public WaterSourceReport addWaterSourceReport(WaterSourceReport report);
 
     /**
      * Gets all the water reports as an ArrayList
      * @return
      */
-    public ArrayList<WaterReport> getWaterReports();
+    public ArrayList<WaterSourceReport> getWaterSourceReports();
 
     /**
      * Logs the user out.
      */
     public void logout();
 
-    public void deleteWaterReport(WaterReport report);
+    public void deleteWaterSourceReport(WaterSourceReport report);
+
+    public WaterQualityReport addWaterQualityReport(WaterQualityReport report);
+
 }

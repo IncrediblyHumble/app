@@ -28,8 +28,6 @@ public class HomeController {
     Button goToCreateButton;
 
     @FXML private void initialize(){
-        User.AccountType curr = db.getCurrentUser().getType();
-        goToCreateButton.setDisable(curr == User.AccountType.USER || curr == User.AccountType.ADMIN);
     }
     /**
      * Event handler for the logout button
@@ -63,5 +61,9 @@ public class HomeController {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 ScreenSwitch.WATER_AVAILABILITY_MAP_SCREEN);
 
+    }
+    public void goToCreateQualityReport(ActionEvent event) throws IOException {
+        screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
+                screenSwitch.CREATE_WATER_QUALITY_REPORT_SCREEN);
     }
 }

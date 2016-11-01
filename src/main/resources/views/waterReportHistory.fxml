@@ -23,7 +23,6 @@
                     <columns>
                       <TableColumn fx:id="reportNumCol" prefWidth="74.0" text="Report #" />
                       <TableColumn fx:id="locationCol" prefWidth="115.0" text="Location" />
-                        <TableColumn fx:id="conditionCol" prefWidth="75.0" text="Condition" />
                     </columns>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -85,11 +84,6 @@
                                     <Insets bottom="30.0" left="30.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label text="Condition:" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="30.0" top="40.0" />
-                                 </GridPane.margin>
-                              </Label>
                               <Label fx:id="dateLabel" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="50.0" />
@@ -125,14 +119,6 @@
                               <Label fx:id="typeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="30.0" />
-                                 </GridPane.margin>
-                                 <padding>
-                                    <Insets right="50.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="conditionLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets top="40.0" />
                                  </GridPane.margin>
                                  <padding>
                                     <Insets right="50.0" />

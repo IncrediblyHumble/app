@@ -20,6 +20,7 @@ public class ScreenSwitch {
     public static String WELCOME_SCREEN = "/views/welcome.fxml";
     public static String WATER_REPORT_HISTORY_SCREEN = "/views/waterReportHistory.fxml";
     public static String WATER_AVAILABILITY_MAP_SCREEN = "/views/waterAvailabilityMapController.fxml";
+    public static String CREATE_WATER_QUALITY_REPORT_SCREEN = "/views/waterQualityReport.fxml";
     @Inject
     private FXMLLoader fxmlLoader;
 
