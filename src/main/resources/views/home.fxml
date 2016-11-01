@@ -65,7 +65,12 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#goToCreateQualityReport" text="Create Quality Report">
+            <Button fx:id="createQualityReportButton" mnemonicParsing="false" onAction="#goToCreateQualityReport" text="Create Quality Report">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="goToQualityReportsButton" mnemonicParsing="false" onAction="#goToQualityReports" text="Go To Quality Reports">
                <font>
                   <Font size="18.0" />
                </font>

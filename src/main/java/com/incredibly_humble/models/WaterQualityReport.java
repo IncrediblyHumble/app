@@ -52,4 +52,17 @@ public class WaterQualityReport {
     public Location getLocation() {
         return this.location;
     }
+
+    public Condition getCondition() {
+        return condition;
+    }
+
+    public int getVirus() {
+        return virus;
+    }
+
+    public int getContaminant() {
+        return contaminant;
+    }
+
 }

@@ -3,26 +3,23 @@ package com.incredibly_humble.app.controllers;
 import com.google.inject.Inject;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
+import com.incredibly_humble.models.WaterQualityReport;
 import com.incredibly_humble.models.WaterSourceReport;
-import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.event.UIEventType;
-import com.lynden.gmapsfx.javascript.object.*;
+import com.lynden.gmapsfx.javascript.object.LatLong;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import netscape.javascript.JSObject;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class WaterAvailabilityMapController extends ViewReportsMapController<WaterSourceReport>
+public class WaterQualityReportsMapController extends ViewReportsMapController<WaterQualityReport>
         implements Initializable, MapComponentInitializedListener {
 
     @FXML
@@ -42,33 +39,31 @@ public class WaterAvailabilityMapController extends ViewReportsMapController<Wat
         super.initialize(url, rb);
     }
 
-    public ArrayList<WaterSourceReport> dbGetReports(){
-        return db.getWaterSourceReports();
+    public ArrayList<WaterQualityReport> dbGetReports() {
+        return db.getWaterQualityReports();
     }
 
-    public String getTitle(WaterSourceReport r) {
+    public String getTitle(WaterQualityReport r) {
         return "" + r.getId();
     }
 
-    public LatLong getLatLong(WaterSourceReport r) {
+    public LatLong getLatLong(WaterQualityReport r) {
         return new LatLong(r.getLocation().getLatitude(), r.getLocation().getLongitude());
     }
 
-    public String getDescription(WaterSourceReport r) {
+    public String getDescription(WaterQualityReport r) {
         return String.format(
-                "<p>Type: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p>",
-                r.getType().toString(), r.getDateReported().toString(), r.getWorkerName(), r.getLocation().toString());
+                "<p>Condition: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p>><p>VirusPPM: %s</p>><p>ContaminantPPM: %s</p>",
+                r.getCondition().toString(), r.getDateReported().toString(), r.getWorkerName(), r.getLocation().toString(), r.getVirus(), r.getContaminant());
     }
 
-    public void dbDelete(WaterSourceReport r){
-        db.deleteWaterSourceReport(r);
+    public void dbDelete(WaterQualityReport r) {
     }
 
     public void enableButtons() {
         nextButton.setDisable(false);
         prevButton.setDisable(false);
-        if (db.getCurrentUser() != null)
-            deleteButton.setDisable(false);
+        deleteButton.setDisable(true);
     }
 
     @FXML

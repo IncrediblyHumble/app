@@ -82,5 +82,8 @@ public interface Database {
     public void deleteWaterSourceReport(WaterSourceReport report);
 
     public WaterQualityReport addWaterQualityReport(WaterQualityReport report);
+    public ArrayList<WaterQualityReport> getWaterQualityReports();
+    public WaterQualityReport deleteWaterQualityReport(WaterQualityReport r);
+
 
 }

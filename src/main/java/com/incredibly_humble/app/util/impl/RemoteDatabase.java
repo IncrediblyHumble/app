@@ -3,11 +3,8 @@ package com.incredibly_humble.app.util.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
-import com.incredibly_humble.models.User;
-import com.incredibly_humble.models.WaterQualityReport;
-import com.incredibly_humble.models.WaterSourceReport;
+import com.incredibly_humble.models.*;
 import com.incredibly_humble.app.util.Database;
-import com.incredibly_humble.models.WaterSourceReports;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -214,6 +211,31 @@ public class RemoteDatabase implements Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public ArrayList<WaterQualityReport> getWaterQualityReports() {
+        try {
+            URL url = new URL(base_url + "getWaterQualityReports");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            //add reuqest header
+            con.setRequestMethod("GET");
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            WaterQualityReports reports = gson.fromJson(readResponse(in), WaterQualityReports.class);
+            in.close();
+            System.out.println(reports.getReports().size());
+            return reports.getReports();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;    }
+
+    @Override
+    public WaterQualityReport deleteWaterQualityReport(WaterQualityReport r) {
         return null;
     }
 }
