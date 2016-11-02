@@ -6,12 +6,15 @@ import com.incredibly_humble.models.WaterSourceReport;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.gmapsfx.javascript.object.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import netscape.javascript.JSObject;
 
 import java.io.IOException;
 import java.util.Date;
@@ -24,6 +27,7 @@ public class CreateWaterSourceReportController extends CreateReportWithMap imple
     private TextField latField;
     @FXML
     private TextField longField;
+    private GoogleMap map;
 
     @Inject
     private ScreenSwitch screenSwitch;
@@ -41,6 +45,10 @@ public class CreateWaterSourceReportController extends CreateReportWithMap imple
         typeBox.getSelectionModel().select(0);
     }
 
+    @Override
+    public void mapInitialized() {
+        super.mapInitialized();
+    }
 
     @FXML
     private void onSubmit(ActionEvent event) throws IOException {

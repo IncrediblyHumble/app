@@ -21,6 +21,7 @@ public abstract class CreateReportWithMap implements MapComponentInitializedList
     private TextField longField;
     @FXML
     private GoogleMapView mapView;
+    @FXML
     private GoogleMap map;
     private Marker marker;
 
