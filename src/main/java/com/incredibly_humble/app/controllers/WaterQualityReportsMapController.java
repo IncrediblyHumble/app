@@ -23,8 +23,6 @@ public class WaterQualityReportsMapController extends ViewReportsMapController<W
         implements Initializable, MapComponentInitializedListener {
 
     @FXML
-    Button deleteButton;
-    @FXML
     Button nextButton;
     @FXML
     Button prevButton;
@@ -53,7 +51,7 @@ public class WaterQualityReportsMapController extends ViewReportsMapController<W
 
     public String getDescription(WaterQualityReport r) {
         return String.format(
-                "<p>Condition: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p>><p>VirusPPM: %s</p>><p>ContaminantPPM: %s</p>",
+                "<p>Condition: %s</p><p>Reported On: %s</p><p>Reported By: %s</p><p>Location: %s</p><p>VirusPPM: %s</p><p>ContaminantPPM: %s</p>",
                 r.getCondition().toString(), r.getDateReported().toString(), r.getWorkerName(), r.getLocation().toString(), r.getVirus(), r.getContaminant());
     }
 
@@ -63,13 +61,12 @@ public class WaterQualityReportsMapController extends ViewReportsMapController<W
     public void enableButtons() {
         nextButton.setDisable(false);
         prevButton.setDisable(false);
-        deleteButton.setDisable(true);
     }
 
     @FXML
     private void onBack(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage,
-                db.getCurrentUser() == null ? ScreenSwitch.WELCOME_SCREEN : ScreenSwitch.HOME_SCREEN);
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
     }
+
 }

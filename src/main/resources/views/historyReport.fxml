@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.HistoryReportController">
+   <center>
+      <ScatterChart fx:id="historyChart" BorderPane.alignment="CENTER">
+        <xAxis>
+          <NumberAxis label="Month" prefWidth="600.0" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="PPM" side="LEFT" />
+        </yAxis>
+      </ScatterChart>
+   </center>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="160.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="535.0" minWidth="10.0" prefWidth="247.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="535.0" minWidth="10.0" prefWidth="273.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#onBack" text="Back" />
+            <ComboBox fx:id="yComboBox" onAction="#chartChanged" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="locComboBox" onAction="#chartChanged" prefWidth="150.0" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

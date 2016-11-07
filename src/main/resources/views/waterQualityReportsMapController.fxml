@@ -9,9 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.incredibly_humble.app.controllers.WaterQualityReportsMapController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.WaterQualityReportsMapController">
 
     <center>
         <!--<GoogleMapView fx:id="mapView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />-->
@@ -19,24 +17,20 @@
     <top>
         <GridPane BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button mnemonicParsing="false" text="Back" onAction="#onBack"/>
-                <Button mnemonicParsing="false" text="Prev" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
-                        onAction="#onPrev" disable="true" fx:id="prevButton"/>
-                <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="4" GridPane.halignment="RIGHT"
-                        onAction="#onDelete" disable="true" fx:id="deleteButton"/>
-                <Button mnemonicParsing="false" text="Next" GridPane.columnIndex="3" GridPane.halignment="LEFT"
-                        onAction="#onNext" disable="true" fx:id="nextButton"/>
-                <Label text="" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="reportLabel"/>
+                <Button mnemonicParsing="false" onAction="#onBack" text="Back" />
+                <Button fx:id="prevButton" disable="true" mnemonicParsing="false" onAction="#onPrev" text="Prev" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#onNext" text="Next" GridPane.columnIndex="3" GridPane.halignment="LEFT" />
+                <Label fx:id="reportLabel" text="" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
             </children>
         </GridPane>
     </top>

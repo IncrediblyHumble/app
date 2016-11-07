@@ -31,10 +31,14 @@ public class HomeController {
     @FXML
     Button goToQualityReportsButton;
 
+    @FXML
+    Button historyButton;
+
     @FXML private void initialize(){
         User.AccountType type = this.db.getCurrentUser().getType();
         this.createQualityReportButton.setVisible(type == User.AccountType.MANAGER || type == User.AccountType.WORKER);
         this.goToQualityReportsButton.setVisible(type == User.AccountType.MANAGER);
+        this.historyButton.setVisible(type == User.AccountType.MANAGER);
     }
     /**
      * Event handler for the logout button
@@ -76,5 +80,12 @@ public class HomeController {
     public void goToQualityReports(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 screenSwitch.VIEW_QUALITY_REPORTS_SCREEN);
+    }
+
+    @FXML
+    private void onHistory(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        screenSwitch.toScreen(primaryStage,
+                ScreenSwitch.HISTORY_SCREEN);
     }
 }
