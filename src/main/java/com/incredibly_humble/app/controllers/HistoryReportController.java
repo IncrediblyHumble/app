@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.scene.chart.XYChart;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -38,7 +39,13 @@ public class HistoryReportController {
     @FXML
     ComboBox locComboBox;
     @FXML
+    ComboBox yearComboBox;
+    @FXML
     ScatterChart<Number, Number> historyChart;
+
+    int year;
+    String y;
+    String loc;
 
     @FXML
     private void initialize() throws IOException {
@@ -62,36 +69,66 @@ public class HistoryReportController {
         String[] values = {"Virus", "Contaminant"};
         this.yComboBox.getItems().setAll(values);
         this.yComboBox.getSelectionModel().select(0);
-        chartChanged(null);
+        y = values[0];
+        loc = (String) this.locComboBox.getSelectionModel().getSelectedItem();
+        this.setYears();
+    }
+
+    public void locChanged(ActionEvent event) throws IOException {
+        loc = (String) this.locComboBox.getSelectionModel().getSelectedItem();
+        setYears();
+    }
+
+    public void yChanged(ActionEvent event) throws IOException {
+        y = (String) this.yComboBox.getSelectionModel().getSelectedItem();
+        chartChanged();
+    }
+    public void yearChanged(ActionEvent event) throws IOException {
+        year = (Integer) this.yearComboBox.getSelectionModel().getSelectedItem();
+        chartChanged();
+    }
+
+
+    private void setYears() throws IOException {
+        ArrayList<WaterQualityReport> reps = this.reports.get(loc);
+        Set<Integer> years = new HashSet<>();
+        Calendar cal = Calendar.getInstance();
+        for (WaterQualityReport rep : reps) {
+            cal.setTime(rep.getDateReported());
+            int YEAR = cal.get(Calendar.YEAR);
+            years.add(YEAR);
+        }
+        this.yearComboBox.getItems().setAll(years.toArray());
+        this.yearComboBox.getSelectionModel().select(0);
+        yearChanged(null);
     }
 
     @FXML
     public void onBack(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        screenSwitch.toScreen(primaryStage, ScreenSwitch.VIEW_QUALITY_REPORTS_SCREEN);
+        screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
     }
 
     @FXML
-    public void chartChanged(ActionEvent event) throws IOException {
+    public void chartChanged() {
         XYChart.Series data = new XYChart.Series();
-        String date = (String) locComboBox.getSelectionModel().getSelectedItem();
         String yAxis = (String) yComboBox.getSelectionModel().getSelectedItem();
-        ArrayList<WaterQualityReport> reps = this.reports.get(date);
-
-        double [] value = new double[12];
+        ArrayList<WaterQualityReport> reps = this.reports.get(loc);
+        double[] value = new double[12];
         double[] counter = new double[12];
+        Calendar cal = Calendar.getInstance();
         for (WaterQualityReport rep : reps) {
-            Calendar cal = Calendar.getInstance();
             cal.setTime(rep.getDateReported());
-            int month = cal.get(Calendar.MONTH);
-            int ppm = yAxis == "Virus" ? rep.getVirus() : rep.getContaminant();
-            value[month] += ppm;
-            counter[month]++;
+            if (cal.get(Calendar.YEAR) ==this.year) {
+                int month = cal.get(Calendar.MONTH);
+                int ppm = yAxis == "Virus" ? rep.getVirus() : rep.getContaminant();
+                value[month] += ppm;
+                counter[month]++;
+            }
         }
-        for(int i = 0; i < 12; i++){
+        for (int i = 0; i < 12; i++) {
             if (counter[i] != 0) {
-                data.getData().add(new XYChart.Data(i+1, value[i]/counter[i]));
-                System.out.println(value[i]/counter[i]);
+                data.getData().add(new XYChart.Data(i + 1, value[i] / counter[i]));
             }
         }
         historyChart.getData().clear();
