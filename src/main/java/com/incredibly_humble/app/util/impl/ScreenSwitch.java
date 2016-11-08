@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * a class representing a screen switch
+ */
 public class ScreenSwitch {
 
     public static String HOME_SCREEN = "/views/home.fxml";

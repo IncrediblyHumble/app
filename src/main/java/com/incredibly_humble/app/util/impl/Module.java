@@ -4,6 +4,9 @@ import com.google.inject.AbstractModule;
 import com.incredibly_humble.app.util.Database;
 import com.incredibly_humble.app.util.Login;
 
+/**
+ * a class representing the module
+ */
 public class Module extends AbstractModule {
     /**
      * binds instances of login, ScreenSwitch and memory

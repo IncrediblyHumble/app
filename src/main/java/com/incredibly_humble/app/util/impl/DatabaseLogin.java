@@ -6,6 +6,9 @@ import com.incredibly_humble.app.util.Login;
 import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import com.incredibly_humble.app.util.impl.exceptions.TriesExceededException;
 
+/**
+ * a class to login login
+ */
 public class DatabaseLogin implements Login{
     @Inject
     Database db;
