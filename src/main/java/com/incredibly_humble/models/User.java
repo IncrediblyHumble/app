@@ -2,8 +2,14 @@ package com.incredibly_humble.models;
 
 import java.io.Serializable;
 
+/**
+ * a class representing the user
+ */
 public class User implements Serializable {
 
+    /**
+     * a subclass enum representing the type of account
+     */
     public static enum AccountType {
         USER,
         WORKER,
@@ -19,6 +25,13 @@ public class User implements Serializable {
     private String address = "";
     private String phone = "";
 
+    /**
+     * user constructor
+     * @param name name of user
+     * @param email email of user
+     * @param password user password
+     * @param type type of account
+     */
     public User(String name, String email, String password, AccountType type) {
         this.name = name;
         this.email = email;
@@ -26,6 +39,16 @@ public class User implements Serializable {
         this.type = type;
     }
 
+    /**
+     * a constructor for user that asks for subscription
+     * @param name name of user
+     * @param email user email
+     * @param password user password
+     * @param type user type
+     * @param subscribed is subscribed or not
+     * @param address user address
+     * @param phone user phine number
+     */
     public User(String name, String email, String password, AccountType type,
                 boolean subscribed, String address, String phone) {
         this(name, email, password, type);
@@ -111,14 +134,27 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    /**
+     * gets type of account
+     * @return account type
+     */
     public AccountType getType() {
         return this.type;
     }
 
+    /**
+     * is subscribed or not
+     * @return subscribed boolean
+     */
     public boolean getSubscribed(){
         return this.subscribed;
     }
 
+    /**
+     * tells if users are equal
+     * @param comparison the users to be compared
+     * @return boolean whether equal or not
+     */
     @Override
     public boolean equals(Object comparison) {
         if (comparison instanceof User) {

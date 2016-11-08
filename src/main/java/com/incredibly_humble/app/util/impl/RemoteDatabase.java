@@ -11,7 +11,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-
+/**
+ * a class containg the remote database
+ */
 public class RemoteDatabase implements Database {
     private final String USER_AGENT = "Mozilla/5.0";
     private final String base_url = "http://localhost:4567/";
@@ -19,10 +21,19 @@ public class RemoteDatabase implements Database {
 
     Gson gson;
 
+    /**
+     * a method that builds the database
+     */
     public RemoteDatabase() {
         gson = new GsonBuilder().create();
     }
 
+    /**
+     * adds a user to the database
+     * @param u the user to add
+     * @return the user that has been added
+     * @throws DatabaseException if the info is not inputted correctly
+     */
     @Override
     public User addUser(User u) throws DatabaseException {
         User user = userSendingHttpRequest("addUser", u);
@@ -33,7 +44,12 @@ public class RemoteDatabase implements Database {
         return user;
     }
 
-
+    /**
+     * updates the user information
+     * @param u user to be updated
+     * @return the user that was updated
+     * @throws DatabaseException if user is not found
+     */
     @Override
     public User updateUser(User u) throws DatabaseException {
         User user = userSendingHttpRequest("updateUser", u);
@@ -79,11 +95,24 @@ public class RemoteDatabase implements Database {
         return response.toString();
     }
 
+    /**
+     * deletes a user from database
+     * @param u the user to be deleted
+     * @return the deleted user
+     * @throws DatabaseException if any issues
+     */
     @Override
     public User deleteUser(User u) throws DatabaseException {
         return null;
     }
 
+    /**
+     * checks the login information
+     * @param email the user email
+     * @param pass the password to be searched for
+     * @return if valid login info or not
+     * @throws DatabaseException if input is null
+     */
     @Override
     public boolean checkCredentialsAndLogin(String email, String pass) throws DatabaseException {
         try {
@@ -100,16 +129,29 @@ public class RemoteDatabase implements Database {
         return false;
     }
 
+    /**
+     * gets the users from database
+     * @return a list of users
+     */
     @Override
     public ArrayList<User> getUsers() {
         return null;
     }
 
+    /**
+     * gets the current user info
+     * @return info of the current user
+     */
     @Override
     public User getCurrentUser() {
         return this.currentUser;
     }
 
+    /**
+     * adds a source report to the database
+     * @param report the report to be added
+     * @return the added report
+     */
     @Override
     public WaterSourceReport addWaterSourceReport(WaterSourceReport report) {
         try {
@@ -137,6 +179,10 @@ public class RemoteDatabase implements Database {
         return null;
     }
 
+    /**
+     * gets a list of source reports
+     * @return the list of source reports
+     */
     @Override
     public ArrayList<WaterSourceReport> getWaterSourceReports() {
         try {
@@ -157,11 +203,18 @@ public class RemoteDatabase implements Database {
         return null;
     }
 
+    /**
+     * logs the current user out of the application
+     */
     @Override
     public void logout() {
         this.currentUser= null;
     }
 
+    /**
+     * deletes a source report
+     * @param report the report to be deleted
+     */
     @Override
     public void deleteWaterSourceReport(WaterSourceReport report) {
         try {
@@ -186,6 +239,11 @@ public class RemoteDatabase implements Database {
         }
     }
 
+    /**
+     * adds a quality report to the database
+     * @param report the report to be added
+     * @return the added report
+     */
     @Override
     public WaterQualityReport addWaterQualityReport(WaterQualityReport report) {
 
@@ -214,6 +272,10 @@ public class RemoteDatabase implements Database {
         return null;
     }
 
+    /**
+     * gets a list of quality reports
+     * @return the list of quality reports
+     */
     @Override
     public ArrayList<WaterQualityReport> getWaterQualityReports() {
         try {
@@ -234,6 +296,11 @@ public class RemoteDatabase implements Database {
         }
         return null;    }
 
+    /**
+     * deletes a quality report
+     * @param r the report to be deleted
+     * @return the deleted report
+     */
     @Override
     public WaterQualityReport deleteWaterQualityReport(WaterQualityReport r) {
         return null;
