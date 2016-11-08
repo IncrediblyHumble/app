@@ -48,7 +48,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + path);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("POST");
 
             // Send post request
@@ -116,7 +116,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + "addWaterSourceReport");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("POST");
 
             // Send post request
@@ -143,7 +143,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + "getWaterSourceReports");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("GET");
 
             BufferedReader in = new BufferedReader(
@@ -168,7 +168,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + "deleteWaterSourceReport");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("POST");
 
             // Send post request
@@ -193,7 +193,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + "addWaterQualityReport");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("POST");
 
             // Send post request
@@ -220,7 +220,7 @@ public class RemoteDatabase implements Database {
             URL url = new URL(base_url + "getWaterQualityReports");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("GET");
 
             BufferedReader in = new BufferedReader(

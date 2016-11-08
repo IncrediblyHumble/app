@@ -123,11 +123,7 @@ public class User implements Serializable {
     public boolean equals(Object comparison) {
         if (comparison instanceof User) {
             User foo = (User) comparison;
-            if (foo.getName().equals(this.name) && foo.getPassword().equals(this.password)) {
-                return true;
-            } else {
-                return false;
-            }
+            return (foo.getName().equals(this.name) && foo.getPassword().equals(this.password));
         } else {
             return false;
         }
