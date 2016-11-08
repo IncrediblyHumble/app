@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class WaterQualityMapController implements Initializable, MapComponentInitializedListener {
 
 

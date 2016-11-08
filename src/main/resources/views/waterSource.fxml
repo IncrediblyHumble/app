@@ -14,58 +14,53 @@
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.incredibly_humble.app.controllers.CreateWaterSourceReportController">
    <top>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="TOP_RIGHT" text="Type:" GridPane.halignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
+       <GridPane BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+           </rowConstraints>
+           <Label alignment="TOP_RIGHT" text="Type:" GridPane.halignment="CENTER">
+              <font>
+                  <Font size="14.0"/>
+              </font>
+           </Label>
+           <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1"/>
+       </GridPane>
    </top>
    <bottom>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" onAction="#onSubmit" text="Submit" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#onCancel" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-         </children>
-      </GridPane>
+       <GridPane BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+           </rowConstraints>
+           <Button mnemonicParsing="false" onAction="#onSubmit" text="Submit" GridPane.halignment="CENTER"/>
+           <Button mnemonicParsing="false" onAction="#onCancel" text="Cancel" GridPane.columnIndex="1"
+                   GridPane.halignment="CENTER"/>
+       </GridPane>
    </bottom>
    <left>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="42.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Lat" GridPane.halignment="CENTER" />
-            <Label text="Long" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="latField" onKeyPressed="#locationChange" GridPane.columnIndex="1" />
-            <TextField fx:id="longField" onKeyPressed="#locationChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
+       <GridPane BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="42.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+           </rowConstraints>
+           <Label text="Lat" GridPane.halignment="CENTER"/>
+           <Label text="Long" GridPane.halignment="CENTER" GridPane.rowIndex="1"/>
+           <TextField fx:id="latField" onKeyPressed="#locationChange" GridPane.columnIndex="1"/>
+           <TextField fx:id="longField" onKeyPressed="#locationChange" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+       </GridPane>
    </left>
     <center>
         <GoogleMapView fx:id="mapView" prefHeight="300.0" prefWidth="450.0" BorderPane.alignment="CENTER"/>

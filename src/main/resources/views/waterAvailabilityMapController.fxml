@@ -28,16 +28,14 @@
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
-            <children>
-                <Button mnemonicParsing="false" text="Back" onAction="#onBack"/>
-                <Button mnemonicParsing="false" text="Prev" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
-                        onAction="#onPrev" disable="true" fx:id="prevButton"/>
-                <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="4" GridPane.halignment="RIGHT"
-                        onAction="#onDelete" disable="true" fx:id="deleteButton"/>
-                <Button mnemonicParsing="false" text="Next" GridPane.columnIndex="3" GridPane.halignment="LEFT"
-                        onAction="#onNext" disable="true" fx:id="nextButton"/>
-                <Label text="" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="reportLabel"/>
-            </children>
+            <Button mnemonicParsing="false" text="Back" onAction="#onBack"/>
+            <Button mnemonicParsing="false" text="Prev" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+                    onAction="#onPrev" disable="true" fx:id="prevButton"/>
+            <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="4" GridPane.halignment="RIGHT"
+                    onAction="#onDelete" disable="true" fx:id="deleteButton"/>
+            <Button mnemonicParsing="false" text="Next" GridPane.columnIndex="3" GridPane.halignment="LEFT"
+                    onAction="#onNext" disable="true" fx:id="nextButton"/>
+            <Label GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="reportLabel"/>
         </GridPane>
     </top>
     <center>

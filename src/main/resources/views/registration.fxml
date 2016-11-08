@@ -10,80 +10,80 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.RegistrationController">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="279.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="321.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <children>
-      <Label text="Name:">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="New Password: " GridPane.rowIndex="2">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="nameField" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin></TextField>
-      <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin></TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleRegistrationPressed" text="Register" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </HBox>
-      <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin>
-      </ComboBox>
-      <Label text="Account Type" GridPane.rowIndex="3">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
-         </GridPane.margin>
-      </TextField>
-      <Label text="Email:" GridPane.rowIndex="1">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="100.0" />
-         </GridPane.margin>
-      </Label>
-   </children>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.incredibly_humble.app.controllers.RegistrationController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="279.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="321.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Label text="Name:">
+        <padding>
+          <Insets left="20.0"/>
+        </padding>
+        <GridPane.margin>
+          <Insets left="100.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="New Password: " GridPane.rowIndex="2">
+        <padding>
+          <Insets left="20.0"/>
+        </padding>
+        <GridPane.margin>
+          <Insets left="100.0"/>
+        </GridPane.margin>
+    </Label>
+    <TextField fx:id="nameField" GridPane.columnIndex="1">
+        <GridPane.margin>
+          <Insets left="20.0" right="20.0"/>
+        </GridPane.margin>
+    </TextField>
+    <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <GridPane.margin>
+          <Insets left="20.0" right="20.0"/>
+        </GridPane.margin>
+    </TextField>
+    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
+        <GridPane.margin>
+            <Insets/>
+        </GridPane.margin>
+        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleRegistrationPressed" text="Register"/>
+        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel"/>
+    </HBox>
+    <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <GridPane.margin>
+          <Insets left="20.0" right="20.0"/>
+        </GridPane.margin>
+    </ComboBox>
+    <Label text="Account Type" GridPane.rowIndex="3">
+        <padding>
+          <Insets left="20.0"/>
+        </padding>
+        <GridPane.margin>
+          <Insets left="100.0"/>
+        </GridPane.margin>
+    </Label>
+    <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <GridPane.margin>
+          <Insets left="20.0" right="20.0"/>
+        </GridPane.margin>
+    </TextField>
+    <Label text="Email:" GridPane.rowIndex="1">
+        <padding>
+          <Insets left="20.0"/>
+        </padding>
+        <GridPane.margin>
+          <Insets left="100.0"/>
+        </GridPane.margin>
+    </Label>
 </GridPane>

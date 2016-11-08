@@ -7,81 +7,78 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.HomeController">
-   <children>
-      <Label text="You are logged in!">
-         <font>
-            <Font size="36.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button minWidth="125.0" mnemonicParsing="false" onAction="#gotoProfile" text="View Profile">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="goToCreateButton" minWidth="200.0" mnemonicParsing="false" onAction="#gotoCreateReport" text="Create Source Report" wrapText="true">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-         <VBox.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#gotoViewReports" text="View Source Reports">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#logout" text="Logout">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-         <VBox.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="createQualityReportButton" mnemonicParsing="false" onAction="#goToCreateQualityReport" text="Create Quality Report">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="goToQualityReportsButton" mnemonicParsing="false" onAction="#goToQualityReports" text="Go To Quality Reports">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="historyButton" mnemonicParsing="false" onAction="#onHistory" text="History">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            
-         </children>
-      </HBox>
-   </children>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.incredibly_humble.app.controllers.HomeController">
+    <Label text="You are logged in!">
+        <font>
+          <Font size="36.0"/>
+        </font>
+        <VBox.margin>
+          <Insets top="20.0"/>
+        </VBox.margin>
+    </Label>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+        <VBox.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+        </VBox.margin>
+        <Button minWidth="125.0" mnemonicParsing="false" onAction="#gotoProfile" text="View Profile">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <HBox.margin>
+                <Insets right="10.0"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="goToCreateButton" minWidth="200.0" mnemonicParsing="false" onAction="#gotoCreateReport"
+                text="Create Source Report" wrapText="true">
+            <HBox.margin>
+                <Insets left="10.0"/>
+            </HBox.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+        <VBox.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0"/>
+        </VBox.margin>
+        <Button mnemonicParsing="false" onAction="#gotoViewReports" text="View Source Reports">
+            <HBox.margin>
+                <Insets right="10.0"/>
+            </HBox.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#logout" text="Logout">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <HBox.margin>
+                <Insets left="10.0"/>
+            </HBox.margin>
+        </Button>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <Button fx:id="createQualityReportButton" mnemonicParsing="false" onAction="#goToCreateQualityReport"
+                text="Create Quality Report">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="goToQualityReportsButton" mnemonicParsing="false" onAction="#goToQualityReports"
+                text="Go To Quality Reports">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="historyButton" mnemonicParsing="false" onAction="#onHistory" text="History">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+
+    </HBox>
 </VBox>

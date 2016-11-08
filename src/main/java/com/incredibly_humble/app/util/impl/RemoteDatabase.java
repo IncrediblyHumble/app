@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+@SuppressWarnings("ConstantConditions")
 public class RemoteDatabase implements Database {
     private final String USER_AGENT = "Mozilla/5.0";
     private final String base_url = "http://localhost:4567/";

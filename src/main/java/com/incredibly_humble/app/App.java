@@ -8,13 +8,14 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * a class to represent the application
  */
 public class App extends Application {
 
-    private GuiceContext context = new GuiceContext(this, () -> Arrays.asList(new Module()));
+    private GuiceContext context = new GuiceContext(this, () -> Collections.singletonList(new Module()));
     @Inject
     private ScreenSwitch screenSwitch;
 
