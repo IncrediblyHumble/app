@@ -63,20 +63,42 @@ public class HomeController {
         screenSwitch.toScreen(primaryStage, ScreenSwitch.PROFILE_SCREEN);
     }
 
+    /**
+     * goes to create a report when pressed
+     * @param event attached to report button
+     * @throws IOException if anything fails
+     */
     public void gotoCreateReport(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 screenSwitch.WATER_SOURCE_SCREEN);
     }
 
+    /**
+     * goes to view report screen
+     * @param event attached to view button
+     * @throws IOException if anything fails
+     */
     public void gotoViewReports(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 ScreenSwitch.WATER_AVAILABILITY_MAP_SCREEN);
 
     }
+
+    /**
+     * goes to create quality report screen
+     * @param event attached to quality report button
+     * @throws IOException if anything fails
+     */
     public void goToCreateQualityReport(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 screenSwitch.CREATE_WATER_QUALITY_REPORT_SCREEN);
     }
+
+    /**
+     * goes to view quality reports
+     * @param event attached to view quality report button
+     * @throws IOException if anything fails
+     */
     public void goToQualityReports(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 screenSwitch.VIEW_QUALITY_REPORTS_SCREEN);

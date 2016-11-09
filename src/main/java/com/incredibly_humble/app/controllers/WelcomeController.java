@@ -29,6 +29,11 @@ public class WelcomeController {
     }
 
 
+    /**
+     * goes to view source reports screen
+     * @param event attached to view reports button
+     * @throws IOException if anything fails
+     */
     public void gotoViewReports(ActionEvent event) throws IOException {
         screenSwitch.toScreen((Stage) ((Node) event.getSource()).getScene().getWindow(),
                 ScreenSwitch.WATER_AVAILABILITY_MAP_SCREEN);

@@ -74,15 +74,31 @@ public class HistoryReportController {
         this.setYears();
     }
 
+    /**
+     * changes the location
+     * @param event attached to location button
+     * @throws IOException if any issues
+     */
     public void locChanged(ActionEvent event) throws IOException {
         loc = (String) this.locComboBox.getSelectionModel().getSelectedItem();
         setYears();
     }
 
+    /**
+     * changes the y axis of report
+     * @param event the current event
+     * @throws IOException if any issues
+     */
     public void yChanged(ActionEvent event) throws IOException {
         y = (String) this.yComboBox.getSelectionModel().getSelectedItem();
         chartChanged();
     }
+
+    /**
+     * changes the year of the report
+     * @param event attached to year button
+     * @throws IOException if any issues
+     */
     public void yearChanged(ActionEvent event) throws IOException {
         year = (Integer) this.yearComboBox.getSelectionModel().getSelectedItem();
         chartChanged();
@@ -103,12 +119,20 @@ public class HistoryReportController {
         yearChanged(null);
     }
 
+    /**
+     * occurs when back button is pressed
+     * @param event attached to back button
+     * @throws IOException if any issues
+     */
     @FXML
     public void onBack(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         screenSwitch.toScreen(primaryStage, ScreenSwitch.HOME_SCREEN);
     }
 
+    /**
+     * changes the chart to be displayed
+     */
     @FXML
     public void chartChanged() {
         XYChart.Series data = new XYChart.Series();
