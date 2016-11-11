@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.HomeController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.incredibly_humble.app.controllers.HomeController">
    <children>
       <Label text="You are logged in!">
          <font>
@@ -27,29 +27,6 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="goToCreateButton" minWidth="200.0" mnemonicParsing="false" onAction="#gotoCreateReport" text="Create Source Report" wrapText="true">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-         <VBox.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#gotoViewReports" text="View Source Reports">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <Button mnemonicParsing="false" onAction="#logout" text="Logout">
                <font>
                   <Font size="18.0" />
@@ -60,28 +37,63 @@
             </Button>
          </children>
          <VBox.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" />
+            <Insets bottom="25.0" left="50.0" right="50.0" top="50.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="goToCreateButton" minWidth="200.0" mnemonicParsing="false" onAction="#gotoCreateReport" text="Create Source Report" wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#gotoViewReports" text="View Source Reports">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="25.0" left="50.0" right="50.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button fx:id="createQualityReportButton" mnemonicParsing="false" onAction="#goToCreateQualityReport" text="Create Quality Report">
                <font>
                   <Font size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
             </Button>
             <Button fx:id="goToQualityReportsButton" mnemonicParsing="false" onAction="#goToQualityReports" text="Go To Quality Reports">
                <font>
                   <Font size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
             </Button>
             <Button fx:id="historyButton" mnemonicParsing="false" onAction="#onHistory" text="History">
                <font>
                   <Font size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </Button>
             
          </children>
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>
