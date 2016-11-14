@@ -64,7 +64,8 @@ public class RemoteDatabaseTest {
         assertNull("null parameter should be used for get methods", httpMock.param);
         assertEquals("Should not be same person", false, u.equals(test2));
         assertEquals("Should be same person", true, u.equals(test));
-
+        assertEquals("should make a call to a get request", httpMock.call, "GET");
+        assertEquals("request sent to correct url.", httpMock.url, "http://localhost:4567/getCurrentUser");
     }
 
     private static class Module extends AbstractModule {
