@@ -10,7 +10,7 @@ public class User implements Serializable {
     /**
      * a subclass enum representing the type of account
      */
-    public static enum AccountType {
+    public enum AccountType {
         USER,
         WORKER,
         MANAGER,
@@ -47,7 +47,7 @@ public class User implements Serializable {
      * @param type user type
      * @param subscribed is subscribed or not
      * @param address user address
-     * @param phone user phine number
+     * @param phone user phone number
      */
     public User(String name, String email, String password, AccountType type,
                 boolean subscribed, String address, String phone) {
@@ -159,11 +159,7 @@ public class User implements Serializable {
     public boolean equals(Object comparison) {
         if (comparison instanceof User) {
             User foo = (User) comparison;
-            if (foo.getName().equals(this.name) && foo.getPassword().equals(this.password)) {
-                return true;
-            } else {
-                return false;
-            }
+            return (foo.getEmail().equals(this.email) && foo.getPassword().equals(this.password));
         } else {
             return false;
         }

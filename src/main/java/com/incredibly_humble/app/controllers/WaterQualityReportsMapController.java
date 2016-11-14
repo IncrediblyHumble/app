@@ -63,9 +63,9 @@ public class WaterQualityReportsMapController extends ViewReportsMapController<W
     }
 
     /**
-     * gets lattitude and longitude
+     * gets latitude and longitude
      * @param r report to be displayed
-     * @return report lattitude and longitude
+     * @return report latitude and longitude
      */
     public LatLong getLatLong(WaterQualityReport r) {
         return new LatLong(r.getLocation().getLatitude(), r.getLocation().getLongitude());

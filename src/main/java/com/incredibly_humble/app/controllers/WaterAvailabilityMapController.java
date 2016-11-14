@@ -68,9 +68,9 @@ public class WaterAvailabilityMapController extends ViewReportsMapController<Wat
     }
 
     /**
-     * gets the lattitude and longitude
+     * gets the latitude and longitude
      * @param r report to be displayed
-     * @return the lattitude and longitude
+     * @return the latitude and longitude
      */
     public LatLong getLatLong(WaterSourceReport r) {
         return new LatLong(r.getLocation().getLatitude(), r.getLocation().getLongitude());

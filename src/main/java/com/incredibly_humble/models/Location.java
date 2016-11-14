@@ -9,7 +9,7 @@ public class Location {
 
     /**
      * constructor for location
-     * @param latitude the lattitude of the location
+     * @param latitude the latitude of the location
      * @param longitude the longitude of location
      */
     public Location(double latitude, double longitude) {
@@ -26,8 +26,8 @@ public class Location {
     }
 
     /**
-     * getter for location lattitude
-     * @return the lattitude of the location
+     * getter for location latitude
+     * @return the latitude of the location
      */
     public double getLatitude() {
         return latitude;

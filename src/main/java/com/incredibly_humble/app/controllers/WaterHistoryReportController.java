@@ -42,7 +42,7 @@ public class WaterHistoryReportController {
     private Label typeLabel;
 
     /**
-     * initilaizes the map
+     * initializes the map
      */
     @FXML
     public void initialize() {

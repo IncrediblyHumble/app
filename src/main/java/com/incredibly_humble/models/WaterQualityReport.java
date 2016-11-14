@@ -3,7 +3,7 @@ package com.incredibly_humble.models;
 import java.util.Date;
 
 /**
- * class represnting quality reports
+ * class representing quality reports
  */
 public class WaterQualityReport {
     /**

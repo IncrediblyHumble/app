@@ -21,7 +21,7 @@ public class App extends Application {
 
     /**
      * a method to start the app
-     * @param primaryStage the inital startup of the view
+     * @param primaryStage the initial startup of the view
      * @throws Exception
      */
     @Override
@@ -33,7 +33,7 @@ public class App extends Application {
     }
 
     /**
-     * launchs the program when run
+     * launches the program when run
      * @param args
      */
     public static void main(String[] args) {

@@ -13,7 +13,7 @@ public class LoginHardcoded implements Login{
      * verifies if user exists
      * @param username name of user
      * @param password password to login
-     * @throws TriesExceededException if person logins incorrectly 3 times
+     * @throws TriesExceededException if person logs in incorrectly 3 times
      */
     public boolean verify(String username, String password) throws DatabaseException {
         if(username.equals("foo") && password.equals("bar") && (count < 3)){

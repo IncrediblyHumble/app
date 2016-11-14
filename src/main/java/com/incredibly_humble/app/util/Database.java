@@ -18,7 +18,7 @@ public interface Database {
      * @return the added user
      * @throws DatabaseException
      */
-    public User addUser(User u) throws DatabaseException;
+    User addUser(User u) throws DatabaseException;
 
     /**
      * updates the user data
@@ -27,7 +27,7 @@ public interface Database {
      * @return the updated user
      * @throws DatabaseException
      */
-    public User updateUser(User u) throws DatabaseException;
+    User updateUser(User u) throws DatabaseException;
 
     /**
      * deletes a user from the database
@@ -36,7 +36,7 @@ public interface Database {
      * @return the user which was deleted
      * @throws DatabaseException
      */
-    public User deleteUser(User u) throws DatabaseException;
+    User deleteUser(User u) throws DatabaseException;
 
     /**
      * checks to see if inputted login info is valid in the database
@@ -45,65 +45,65 @@ public interface Database {
      * @param pass the password to be searched for
      * @return true if the username/password were found
      */
-    public boolean checkCredentialsAndLogin(String user, String pass)throws DatabaseException;
+    boolean checkCredentialsAndLogin(String user, String pass)throws DatabaseException;
 
     /**
      * gets a list of all of the users in the database
      *
      * @return an arrayList of the users
      */
-    public ArrayList<User> getUsers();
+    ArrayList<User> getUsers();
 
     /**
      * checks to see who is currently using the program
      *
      * @return the current user data
      */
-    public User getCurrentUser();
+    User getCurrentUser();
 
     /**
      * adds a water report to the WaterSourceReports table
      * @param report
      * @return
      */
-    public WaterSourceReport addWaterSourceReport(WaterSourceReport report);
+    WaterSourceReport addWaterSourceReport(WaterSourceReport report);
 
     /**
      * Gets all the water reports as an ArrayList
      * @return
      */
-    public ArrayList<WaterSourceReport> getWaterSourceReports();
+    ArrayList<WaterSourceReport> getWaterSourceReports();
 
     /**
      * Logs the user out.
      */
-    public void logout();
+    void logout();
 
     /**
      * deletes a report
      * @param report the report to be deleted
      */
-    public void deleteWaterSourceReport(WaterSourceReport report);
+    void deleteWaterSourceReport(WaterSourceReport report);
 
     /**
      * add report
      * @param report report to be added
      * @return the report that's been added
      */
-    public WaterQualityReport addWaterQualityReport(WaterQualityReport report);
+    WaterQualityReport addWaterQualityReport(WaterQualityReport report);
 
     /**
      * gets reports
      * @return a list of reports
      */
-    public ArrayList<WaterQualityReport> getWaterQualityReports();
+    ArrayList<WaterQualityReport> getWaterQualityReports();
 
     /**
      * deletes a report
      * @param r the report to be deleted
-     * @return the thats been deleted
+     * @return the word that's been deleted
      */
-    public WaterQualityReport deleteWaterQualityReport(WaterQualityReport r);
+    WaterQualityReport deleteWaterQualityReport(WaterQualityReport r);
 
 
 }

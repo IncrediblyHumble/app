@@ -22,7 +22,7 @@ public class HttpClientImpl implements HttpClient{
             URL u = new URL(url);
             HttpURLConnection con = (HttpURLConnection) u.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("POST");
 
             // Send post request
@@ -48,7 +48,7 @@ public class HttpClientImpl implements HttpClient{
             URL r = new URL(url);
             HttpURLConnection con = (HttpURLConnection) r.openConnection();
 
-            //add reuqest header
+            //add request header
             con.setRequestMethod("GET");
 
             BufferedReader in = new BufferedReader(

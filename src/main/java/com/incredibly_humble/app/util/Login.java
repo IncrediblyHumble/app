@@ -15,5 +15,5 @@ public interface Login {
      * @return a boolean whether login was successful or not
      * @throws TriesExceededException - thrown after three failed attempts.
      */
-    public boolean verify(String username, String password) throws DatabaseException;
+    boolean verify(String username, String password) throws DatabaseException;
 }

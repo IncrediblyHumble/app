@@ -49,7 +49,7 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
     /**
      * a method to initialize the report map
      * @param url the url to be accessed
-     * @param rb java recources
+     * @param rb java resources
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,9 +65,9 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
     abstract public String getTitle(T report);
 
     /**
-     * gets the lattitude and longitude of the map
+     * gets the latitude and longitude of the map
      * @param report the report to be displayed
-     * @return the lattitude and longitude
+     * @return the latitude and longitude
      */
     abstract public LatLong getLatLong(T report);
 
@@ -91,7 +91,7 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
     abstract ArrayList<T> dbGetReports();
 
     /**
-     * initializs the map
+     * initializes the map
      */
     @Override
     public void mapInitialized() {

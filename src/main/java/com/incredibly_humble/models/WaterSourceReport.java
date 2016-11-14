@@ -90,7 +90,7 @@ public class WaterSourceReport {
 
     /**
      * gets the location of the water
-     * @return the loction of the water
+     * @return the location of the water
      */
     public Location getLocation(){return this.location;}
 }
