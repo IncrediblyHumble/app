@@ -12,6 +12,9 @@ import com.incredibly_humble.app.util.impl.ScreenSwitch;
 import org.junit.*;
 import org.junit.Assert.*;
 
+import com.incredibly_humble.models.User;
+import static com.incredibly_humble.models.User.AccountType.USER;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -21,6 +24,8 @@ import static org.junit.Assert.assertNull;
 public class RemoteDatabaseTest {
     static HttpClientMock httpMock;
     static com.incredibly_humble.app.util.impl.RemoteDatabase db;
+
+    User test = new User("Maddie", "maddie@gatech.edu", "password", USER);
 
     @BeforeClass
     public static void setUp(){
@@ -34,7 +39,7 @@ public class RemoteDatabaseTest {
 
     // Written by Noam
     @Test
-    public void testGetUsers(){
+    public void testGetWaterQualityReports(){
         db.getWaterQualityReports();
         assertNull("Param shouldn't be set in a get request.",httpMock.param);
         assertEquals("Get request should be made to the correct url.",httpMock.url,"http://localhost:4567/getWaterQualityReports");
@@ -48,6 +53,14 @@ public class RemoteDatabaseTest {
         assertNull("Null param for get request", httpMock.param);
         assertEquals("request sent to correct url.", httpMock.url, "http://localhost:4567/getWaterSourceReports");
         assertEquals("should make a call to a get request", httpMock.call, "GET");
+    }
+
+    //Written by Maddie
+    @Test
+    public void testGetCurrentUser() throws Exception {
+        db.getCurrentUser();
+        assertNull("null parameter should be used for get methods", httpMock.param);
+
     }
 
     private static class Module extends AbstractModule {
