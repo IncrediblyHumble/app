@@ -41,7 +41,9 @@ public class WaterHistoryReportController {
     @FXML
     private Label typeLabel;
 
-
+    /**
+     * initilaizes the map
+     */
     @FXML
     public void initialize() {
         reportNumCol.setCellValueFactory(cellData ->
@@ -66,6 +68,11 @@ public class WaterHistoryReportController {
         typeLabel.setText(report.getType().toString());
     }
 
+    /**
+     * goes back to previous screen
+     * @param event attached to back button
+     * @throws IOException if anything fails
+     */
     @FXML
     public void backPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

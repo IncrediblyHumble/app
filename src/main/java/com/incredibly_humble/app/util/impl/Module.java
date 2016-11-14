@@ -6,7 +6,9 @@ import com.incredibly_humble.app.util.HttpClient;
 import com.incredibly_humble.app.util.Login;
 
 import java.net.HttpURLConnection;
-
+/**
+ * a class representing the module
+ */
 public class Module extends AbstractModule {
     /**
      * binds instances of login, ScreenSwitch and memory

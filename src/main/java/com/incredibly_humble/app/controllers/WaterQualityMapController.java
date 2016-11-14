@@ -48,12 +48,20 @@ public class WaterQualityMapController implements Initializable, MapComponentIni
     private GoogleMap map;
     private ArrayList<Marker> markers;
 
+    /**
+     * initializes the map
+     * @param url the url to be accessed for maps
+     * @param rb java resources
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         markers = new ArrayList<>();
         mapView.addMapInializedListener(this);
     }
 
+    /**
+     * initializes map
+     */
     @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();

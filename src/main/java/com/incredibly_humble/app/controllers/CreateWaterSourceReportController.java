@@ -45,6 +45,9 @@ public class CreateWaterSourceReportController extends CreateReportWithMap imple
         typeBox.getSelectionModel().select(0);
     }
 
+    /**
+     * initializes the map
+     */
     @Override
     public void mapInitialized() {
         super.mapInitialized();

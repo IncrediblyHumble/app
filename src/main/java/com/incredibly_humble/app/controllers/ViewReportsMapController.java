@@ -23,6 +23,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * a class representing the view of reports
+ * @param <T> the type of report
+ */
 abstract public class ViewReportsMapController<T> implements Initializable, MapComponentInitializedListener {
 
 
@@ -42,22 +46,53 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
     private GoogleMap map;
     private ArrayList<Marker> markers;
 
+    /**
+     * a method to initialize the report map
+     * @param url the url to be accessed
+     * @param rb java recources
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         markers = new ArrayList<>();
         mapView.addMapInializedListener(this);
     }
 
+    /**
+     * gets the title of the map
+     * @param report the report to be displayed
+     * @return the title
+     */
     abstract public String getTitle(T report);
 
+    /**
+     * gets the lattitude and longitude of the map
+     * @param report the report to be displayed
+     * @return the lattitude and longitude
+     */
     abstract public LatLong getLatLong(T report);
 
+    /**
+     * the description of the report
+     * @param report the report to be displayed
+     * @return the description
+     */
     abstract public String getDescription(T report);
 
+    /**
+     * deletes from database
+     * @param report the report to be deleted
+     */
     abstract public void dbDelete(T report);
 
+    /**
+     * gets the reports from the database
+     * @return the list of reports
+     */
     abstract ArrayList<T> dbGetReports();
 
+    /**
+     * initializs the map
+     */
     @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();
@@ -102,6 +137,9 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
         enableButtons();
     }
 
+    /**
+     * enables map buttons
+     */
     abstract public void enableButtons();
 
     private void moveToReport(int index) {
@@ -136,7 +174,6 @@ abstract public class ViewReportsMapController<T> implements Initializable, MapC
         }
         moveToReport(this.onReport);
     }
-
 
     @FXML
     private void onDelete(ActionEvent event) throws IOException {

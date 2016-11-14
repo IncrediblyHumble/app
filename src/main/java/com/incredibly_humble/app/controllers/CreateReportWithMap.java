@@ -34,6 +34,7 @@ public abstract class CreateReportWithMap implements MapComponentInitializedList
         latField.setText(String.format("%f", 34.0));
         longField.setText(String.format("%f", -88.0));
     }
+
     @FXML
     private void locationChange(KeyEvent event) throws IOException {
         try {
@@ -42,6 +43,9 @@ public abstract class CreateReportWithMap implements MapComponentInitializedList
         }
     }
 
+    /**
+     * initializes the map
+     */
     @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();

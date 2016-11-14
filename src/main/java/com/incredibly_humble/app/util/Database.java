@@ -79,10 +79,30 @@ public interface Database {
      */
     public void logout();
 
+    /**
+     * deletes a report
+     * @param report the report to be deleted
+     */
     public void deleteWaterSourceReport(WaterSourceReport report);
 
+    /**
+     * add report
+     * @param report report to be added
+     * @return the report that's been added
+     */
     public WaterQualityReport addWaterQualityReport(WaterQualityReport report);
+
+    /**
+     * gets reports
+     * @return a list of reports
+     */
     public ArrayList<WaterQualityReport> getWaterQualityReports();
+
+    /**
+     * deletes a report
+     * @param r the report to be deleted
+     * @return the thats been deleted
+     */
     public WaterQualityReport deleteWaterQualityReport(WaterQualityReport r);
 
 
