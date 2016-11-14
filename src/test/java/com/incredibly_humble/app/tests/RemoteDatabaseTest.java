@@ -32,10 +32,11 @@ public class RemoteDatabaseTest {
     @Test
     public  void testGetUsers(){
         db.getWaterQualityReports();
-        assertNull("Parm shouldn't be set in a get request.",httpMock.param);
+        assertNull("Param shouldn't be set in a get request.",httpMock.param);
         assertEquals("Get request should be made to the correct url.",httpMock.url,"http://localhost:4567/getWaterQualityReports");
         assertEquals("Request made should be a get request", httpMock.call, "GET");
     }
+
     private static class Module extends AbstractModule {
         @Override
         protected void configure() {
