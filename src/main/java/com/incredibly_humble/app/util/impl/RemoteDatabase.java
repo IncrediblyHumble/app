@@ -80,7 +80,7 @@ public class RemoteDatabase implements Database {
     @Override
     public boolean checkCredentialsAndLogin(String email, String pass) throws DatabaseException {
         this.currentUser = userSendingHttpRequest("login", new User(null, email, pass, null));
-        return false;
+        return true;
     }
     /**
      * gets the users from database
