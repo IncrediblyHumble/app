@@ -40,4 +40,21 @@ public class Location {
     public String toString(){
         return String.format("<%f, %f>",this.latitude, this.longitude);
     }
+
+    /**
+     * tells if locations are equal
+     * @param comparison the location to be compared
+     * @return boolean whether equal or not
+     */
+    @Override
+    public boolean equals(Object comparison) {
+        if (comparison instanceof Location) {
+            Location foo = (Location) comparison;
+            if (foo.getLatitude() == this.latitude && foo.getLongitude() == this.longitude) {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
