@@ -15,9 +15,13 @@ import org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+/**
+ * a class to test the remote database
+ */
 public class RemoteDatabaseTest {
     static HttpClientMock httpMock;
     static com.incredibly_humble.app.util.impl.RemoteDatabase db;
+
     @BeforeClass
     public static void setUp(){
         Module m = new Module();
@@ -30,11 +34,20 @@ public class RemoteDatabaseTest {
 
     // Written by Noam
     @Test
-    public  void testGetUsers(){
+    public void testGetUsers(){
         db.getWaterQualityReports();
         assertNull("Param shouldn't be set in a get request.",httpMock.param);
         assertEquals("Get request should be made to the correct url.",httpMock.url,"http://localhost:4567/getWaterQualityReports");
         assertEquals("Request made should be a get request", httpMock.call, "GET");
+    }
+
+    //Written by Ashley
+    @Test
+    public void testGetSourceReports() {
+        db.getWaterSourceReports();
+        assertNull("Null param for get request", httpMock.param);
+        assertEquals("request sent to correct url.", httpMock.url, "http://localhost:4567/getWaterSourceReports");
+        assertEquals("should make a call to a get request", httpMock.call, "GET");
     }
 
     private static class Module extends AbstractModule {
