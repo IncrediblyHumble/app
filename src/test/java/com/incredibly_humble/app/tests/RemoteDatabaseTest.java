@@ -14,7 +14,7 @@ import org.junit.Assert.*;
 
 import com.incredibly_humble.models.User;
 import static com.incredibly_humble.models.User.AccountType.USER;
-
+import com.incredibly_humble.app.util.impl.exceptions.DatabaseException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -26,6 +26,7 @@ public class RemoteDatabaseTest {
     static com.incredibly_humble.app.util.impl.RemoteDatabase db;
 
     User test = new User("Maddie", "maddie@gatech.edu", "password", USER);
+    User test2 = new User("Test", "test@gatech.edu", "password", USER);
 
     @BeforeClass
     public static void setUp(){
@@ -56,10 +57,13 @@ public class RemoteDatabaseTest {
     }
 
     //Written by Maddie
-    @Test
+    @Test(expected=Exception.class)
     public void testGetCurrentUser() throws Exception {
-        db.getCurrentUser();
+        db.addUser(test);
+        User u = db.getCurrentUser();
         assertNull("null parameter should be used for get methods", httpMock.param);
+        assertEquals("Should not be same person", false, u.equals(test2));
+        assertEquals("Should be same person", true, u.equals(test));
 
     }
 
