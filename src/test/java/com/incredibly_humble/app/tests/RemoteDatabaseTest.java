@@ -28,6 +28,7 @@ public class RemoteDatabaseTest {
         injector.injectMembers(db);
     }
 
+    // Written by Noam
     @Test
     public  void testGetUsers(){
         db.getWaterQualityReports();
