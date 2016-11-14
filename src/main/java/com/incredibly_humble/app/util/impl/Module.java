@@ -2,7 +2,10 @@ package com.incredibly_humble.app.util.impl;
 
 import com.google.inject.AbstractModule;
 import com.incredibly_humble.app.util.Database;
+import com.incredibly_humble.app.util.HttpClient;
 import com.incredibly_humble.app.util.Login;
+
+import java.net.HttpURLConnection;
 
 public class Module extends AbstractModule {
     /**
@@ -13,5 +16,6 @@ public class Module extends AbstractModule {
         bind(Login.class).to(DatabaseLogin.class);
         bind(ScreenSwitch.class);
         bind(Database.class).toInstance(new RemoteDatabase());
+        bind(HttpClient.class).toInstance(new HttpClientImpl());
     }
 }
