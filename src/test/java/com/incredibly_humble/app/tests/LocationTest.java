@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class LocationTest {
     private Location un = new Location(33.745, -82.932);
     private Location deux = new Location(27.319, 70.003);
-    private Location trois =newLocation(33.745, 70.003);
+    private Location trois = new Location(33.745, 70.003);
 
     //Written by Emily
     @Test
